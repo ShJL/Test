@@ -1,0 +1,183 @@
+\hypertarget{classstk_1_1stack__t}{}\section{stk\+:\+:stack\+\_\+t$<$ Tp, stack\+\_\+size $>$ Class Template Reference}
+\label{classstk_1_1stack__t}\index{stk\+::stack\+\_\+t$<$ Tp, stack\+\_\+size $>$@{stk\+::stack\+\_\+t$<$ Tp, stack\+\_\+size $>$}}
+
+
+{\ttfamily \#include $<$stack.\+h$>$}
+
+
+
+Collaboration diagram for stk\+:\+:stack\+\_\+t$<$ Tp, stack\+\_\+size $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classstk_1_1stack__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classstk_1_1stack__t_a05d1586fa8257268f0c1ade7ffc4588e}\label{classstk_1_1stack__t_a05d1586fa8257268f0c1ade7ffc4588e}} 
+using \hyperlink{classstk_1_1stack__t_a05d1586fa8257268f0c1ade7ffc4588e}{value\+\_\+type} = Tp
+\begin{DoxyCompactList}\small\item\em Element type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classstk_1_1stack__t_a27d586bc06e0faf30a2a980cd8ffd125}\label{classstk_1_1stack__t_a27d586bc06e0faf30a2a980cd8ffd125}} 
+using \hyperlink{classstk_1_1stack__t_a27d586bc06e0faf30a2a980cd8ffd125}{const\+\_\+value\+\_\+type} = const Tp
+\begin{DoxyCompactList}\small\item\em Const element type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classstk_1_1stack__t_ade199c494a8e4455f76cc04faf138ed8}\label{classstk_1_1stack__t_ade199c494a8e4455f76cc04faf138ed8}} 
+using \hyperlink{classstk_1_1stack__t_ade199c494a8e4455f76cc04faf138ed8}{size\+\_\+type} = std\+::size\+\_\+t
+\begin{DoxyCompactList}\small\item\em Size type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstk_1_1stack__t_ab7605ffb3efbfdaf23c1411dba8076d7}{stack\+\_\+t} ()
+\item 
+\mbox{\Hypertarget{classstk_1_1stack__t_a27abcc49011f8cd22cd92395655f8ca4}\label{classstk_1_1stack__t_a27abcc49011f8cd22cd92395655f8ca4}} 
+\hyperlink{classstk_1_1stack__t_a27abcc49011f8cd22cd92395655f8ca4}{stack\+\_\+t} (const \hyperlink{classstk_1_1stack__t}{stack\+\_\+t} \&)=default
+\begin{DoxyCompactList}\small\item\em Default the copy constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classstk_1_1stack__t_a680884feaecd4cb19ea890893c583fdb}\label{classstk_1_1stack__t_a680884feaecd4cb19ea890893c583fdb}} 
+\hyperlink{classstk_1_1stack__t}{stack\+\_\+t} \& \hyperlink{classstk_1_1stack__t_a680884feaecd4cb19ea890893c583fdb}{operator=} (const \hyperlink{classstk_1_1stack__t}{stack\+\_\+t} \&)=default
+\begin{DoxyCompactList}\small\item\em Default the assignment operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classstk_1_1stack__t_acd6dfd6efc2edad5c9bd8f126c415a69}\label{classstk_1_1stack__t_acd6dfd6efc2edad5c9bd8f126c415a69}} 
+\hyperlink{classstk_1_1stack__t_acd6dfd6efc2edad5c9bd8f126c415a69}{$\sim$stack\+\_\+t} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\hyperlink{classstk_1_1stack__t_a05d1586fa8257268f0c1ade7ffc4588e}{value\+\_\+type} \hyperlink{classstk_1_1stack__t_a120f150bc90f8ccf0c0ca8396bda7c65}{top} () const
+\item 
+void \hyperlink{classstk_1_1stack__t_a5be99b150a46b8456643cbc40bcefca8}{pop} ()
+\item 
+void \hyperlink{classstk_1_1stack__t_aad7638faa441f17e91ba9a8f5663be4c}{push} (\hyperlink{classstk_1_1stack__t_a27d586bc06e0faf30a2a980cd8ffd125}{const\+\_\+value\+\_\+type} \&x)
+\item 
+\hyperlink{classstk_1_1stack__t_ade199c494a8e4455f76cc04faf138ed8}{size\+\_\+type} \hyperlink{classstk_1_1stack__t_a50dbd2e6626510af69ba1f38882ca1b5}{size} () const
+\item 
+bool \hyperlink{classstk_1_1stack__t_adb144d5de96aeeed6dee8d902158f1a6}{empty} () const
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classstk_1_1stack__t_a6c1813c8dc347f0cc9ab94a6e120d743}{is\+\_\+valid} () const
+\item 
+void \hyperlink{classstk_1_1stack__t_ac6b1f910422f3402f4ffcc8d496d0273}{dump} () const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classstk_1_1stack__t_a34489e147dc7052c6ee4eaa70c31c009}\label{classstk_1_1stack__t_a34489e147dc7052c6ee4eaa70c31c009}} 
+\hyperlink{classstk_1_1stack__t_a27d586bc06e0faf30a2a980cd8ffd125}{const\+\_\+value\+\_\+type} \hyperlink{classstk_1_1stack__t_a34489e147dc7052c6ee4eaa70c31c009}{F\+R\+E\+E\+\_\+\+P\+O\+I\+S\+O\+N\+\_\+} = static\+\_\+cast$<$\hyperlink{classstk_1_1stack__t_a27d586bc06e0faf30a2a980cd8ffd125}{const\+\_\+value\+\_\+type}$>$(0)
+\begin{DoxyCompactList}\small\item\em Constant for mark the empty fields. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classstk_1_1stack__t_a740287c74a7e188220ef94e4dbd5a3ea}\label{classstk_1_1stack__t_a740287c74a7e188220ef94e4dbd5a3ea}} 
+\hyperlink{classstk_1_1stack__t_a05d1586fa8257268f0c1ade7ffc4588e}{value\+\_\+type} \hyperlink{classstk_1_1stack__t_a740287c74a7e188220ef94e4dbd5a3ea}{data\+\_\+} \mbox{[}stack\+\_\+size\mbox{]}
+\begin{DoxyCompactList}\small\item\em Stack base on array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classstk_1_1stack__t_a9c23414b1fa07a11c14f2abb029ee676}\label{classstk_1_1stack__t_a9c23414b1fa07a11c14f2abb029ee676}} 
+\hyperlink{classstk_1_1stack__t_ade199c494a8e4455f76cc04faf138ed8}{size\+\_\+type} \hyperlink{classstk_1_1stack__t_a9c23414b1fa07a11c14f2abb029ee676}{top\+\_\+}
+\begin{DoxyCompactList}\small\item\em Pointer on the top item of the stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Tp, std\+::size\+\_\+t stack\+\_\+size = 10$>$\newline
+class stk\+::stack\+\_\+t$<$ Tp, stack\+\_\+size $>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Tp} & the type of the value in the stack \\
+\hline
+{\em stack\+\_\+size} & the capacity of the stack (the default value is 10) \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classstk_1_1stack__t_ab7605ffb3efbfdaf23c1411dba8076d7}\label{classstk_1_1stack__t_ab7605ffb3efbfdaf23c1411dba8076d7}} 
+\index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!stack\+\_\+t@{stack\+\_\+t}}
+\index{stack\+\_\+t@{stack\+\_\+t}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
+\subsubsection{\texorpdfstring{stack\+\_\+t()}{stack\_t()}}
+{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
+\hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::\hyperlink{classstk_1_1stack__t}{stack\+\_\+t} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor Fill all elements F\+R\+E\+E\+\_\+\+P\+O\+I\+S\+O\+N\+\_\+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classstk_1_1stack__t_ac6b1f910422f3402f4ffcc8d496d0273}\label{classstk_1_1stack__t_ac6b1f910422f3402f4ffcc8d496d0273}} 
+\index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!dump@{dump}}
+\index{dump@{dump}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
+\subsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size$>$ \\
+void \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Dumper Create file \char`\"{}\+\_\+\+\_\+stack\+\_\+dump.\+txt\char`\"{} where is information about stack\textquotesingle{}s status \mbox{\Hypertarget{classstk_1_1stack__t_adb144d5de96aeeed6dee8d902158f1a6}\label{classstk_1_1stack__t_adb144d5de96aeeed6dee8d902158f1a6}} 
+\index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!empty@{empty}}
+\index{empty@{empty}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
+\subsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
+bool \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks the emptiness of the stack \begin{DoxyReturn}{Returns}
+true if stack is empty, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstk_1_1stack__t_a6c1813c8dc347f0cc9ab94a6e120d743}\label{classstk_1_1stack__t_a6c1813c8dc347f0cc9ab94a6e120d743}} 
+\index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!is\+\_\+valid@{is\+\_\+valid}}
+\index{is\+\_\+valid@{is\+\_\+valid}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
+\subsubsection{\texorpdfstring{is\+\_\+valid()}{is\_valid()}}
+{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size$>$ \\
+bool \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::is\+\_\+valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Silent verifier \begin{DoxyReturn}{Returns}
+True if stack is valid else return false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstk_1_1stack__t_a5be99b150a46b8456643cbc40bcefca8}\label{classstk_1_1stack__t_a5be99b150a46b8456643cbc40bcefca8}} 
+\index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!pop@{pop}}
+\index{pop@{pop}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
+\subsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size$>$ \\
+void \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Delete the item from the stack 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & From \hyperlink{stack_8h_a4ad7af85cae2910ffcf6bfbcb8278886}{A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when stack is not valid \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & When stack is empty \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classstk_1_1stack__t_aad7638faa441f17e91ba9a8f5663be4c}\label{classstk_1_1stack__t_aad7638faa441f17e91ba9a8f5663be4c}} 
+\index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!push@{push}}
+\index{push@{push}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
+\subsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size$>$ \\
+void \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::push (\begin{DoxyParamCaption}\item[{\hyperlink{classstk_1_1stack__t_a27d586bc06e0faf30a2a980cd8ffd125}{const\+\_\+value\+\_\+type} \&}]{x }\end{DoxyParamCaption})}
+
+Append new item in the stack 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & From \hyperlink{stack_8h_a4ad7af85cae2910ffcf6bfbcb8278886}{A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when stack is not valid \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & When the stack is full \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classstk_1_1stack__t_a50dbd2e6626510af69ba1f38882ca1b5}\label{classstk_1_1stack__t_a50dbd2e6626510af69ba1f38882ca1b5}} 
+\index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!size@{size}}
+\index{size@{size}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
+\hyperlink{classstk_1_1stack__t_ade199c494a8e4455f76cc04faf138ed8}{size\+\_\+type} \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Currently size of the stack \begin{DoxyReturn}{Returns}
+Count of the item in the stack 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstk_1_1stack__t_a120f150bc90f8ccf0c0ca8396bda7c65}\label{classstk_1_1stack__t_a120f150bc90f8ccf0c0ca8396bda7c65}} 
+\index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!top@{top}}
+\index{top@{top}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
+\subsubsection{\texorpdfstring{top()}{top()}}
+{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
+\hyperlink{classstk_1_1stack__t_a05d1586fa8257268f0c1ade7ffc4588e}{value\+\_\+type} \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::top (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the item from the stack 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & From \hyperlink{stack_8h_a4ad7af85cae2910ffcf6bfbcb8278886}{A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when stack is not valid \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+the top item from the stack 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Git\+Hub/\+Techno\+Atom/stack/\hyperlink{stack_8h}{stack.\+h}\item 
+D\+:/\+Git\+Hub/\+Techno\+Atom/stack/\hyperlink{stack_8cpp}{stack.\+cpp}\end{DoxyCompactItemize}
