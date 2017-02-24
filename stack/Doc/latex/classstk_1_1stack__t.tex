@@ -40,7 +40,7 @@ using \hyperlink{classstk_1_1stack__t_ade199c494a8e4455f76cc04faf138ed8}{size\+\
 \mbox{\Hypertarget{classstk_1_1stack__t_acd6dfd6efc2edad5c9bd8f126c415a69}\label{classstk_1_1stack__t_acd6dfd6efc2edad5c9bd8f126c415a69}} 
 \hyperlink{classstk_1_1stack__t_acd6dfd6efc2edad5c9bd8f126c415a69}{$\sim$stack\+\_\+t} ()=default
 \begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
-\hyperlink{classstk_1_1stack__t_a05d1586fa8257268f0c1ade7ffc4588e}{value\+\_\+type} \hyperlink{classstk_1_1stack__t_a120f150bc90f8ccf0c0ca8396bda7c65}{top} () const
+\hyperlink{classstk_1_1stack__t_a05d1586fa8257268f0c1ade7ffc4588e}{value\+\_\+type} \hyperlink{classstk_1_1stack__t_a4c8dca98c8f18b9d60398ac75aba5af7}{top} () const
 \item 
 void \hyperlink{classstk_1_1stack__t_a5be99b150a46b8456643cbc40bcefca8}{pop} ()
 \item 
@@ -72,12 +72,12 @@ void \hyperlink{classstk_1_1stack__t_ac6b1f910422f3402f4ffcc8d496d0273}{dump} ()
 
 
 \subsection{Detailed Description}
-\subsubsection*{template$<$typename Tp, std\+::size\+\_\+t stack\+\_\+size = 10$>$\newline
+\subsubsection*{template$<$typename Tp = int, std\+::size\+\_\+t stack\+\_\+size = 10$>$\newline
 class stk\+::stack\+\_\+t$<$ Tp, stack\+\_\+size $>$}
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Tp} & the type of the value in the stack \\
+{\em Tp} & the type of the value in the stack (the default type is int) \\
 \hline
 {\em stack\+\_\+size} & the capacity of the stack (the default value is 10) \\
 \hline
@@ -89,7 +89,7 @@ class stk\+::stack\+\_\+t$<$ Tp, stack\+\_\+size $>$}
 \index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!stack\+\_\+t@{stack\+\_\+t}}
 \index{stack\+\_\+t@{stack\+\_\+t}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
 \subsubsection{\texorpdfstring{stack\+\_\+t()}{stack\_t()}}
-{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
+{\footnotesize\ttfamily template$<$typename Tp  = int, std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
 \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::\hyperlink{classstk_1_1stack__t}{stack\+\_\+t} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Default constructor Fill all elements F\+R\+E\+E\+\_\+\+P\+O\+I\+S\+O\+N\+\_\+ 
@@ -106,7 +106,7 @@ Dumper Create file \char`\"{}\+\_\+\+\_\+stack\+\_\+dump.\+txt\char`\"{} where i
 \index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!empty@{empty}}
 \index{empty@{empty}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
 \subsubsection{\texorpdfstring{empty()}{empty()}}
-{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
+{\footnotesize\ttfamily template$<$typename Tp  = int, std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
 bool \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 Checks the emptiness of the stack \begin{DoxyReturn}{Returns}
@@ -144,6 +144,11 @@ Delete the item from the stack
 void \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::push (\begin{DoxyParamCaption}\item[{\hyperlink{classstk_1_1stack__t_a27d586bc06e0faf30a2a980cd8ffd125}{const\+\_\+value\+\_\+type} \&}]{x }\end{DoxyParamCaption})}
 
 Append new item in the stack 
+\begin{DoxyParams}{Parameters}
+{\em x} & The element that will be added to the stack \\
+\hline
+\end{DoxyParams}
+
 \begin{DoxyExceptions}{Exceptions}
 {\em std\+::exception} & From \hyperlink{stack_8h_a4ad7af85cae2910ffcf6bfbcb8278886}{A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when stack is not valid \\
 \hline
@@ -154,18 +159,18 @@ Append new item in the stack
 \index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!size@{size}}
 \index{size@{size}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
 \subsubsection{\texorpdfstring{size()}{size()}}
-{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
+{\footnotesize\ttfamily template$<$typename Tp  = int, std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
 \hyperlink{classstk_1_1stack__t_ade199c494a8e4455f76cc04faf138ed8}{size\+\_\+type} \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 Currently size of the stack \begin{DoxyReturn}{Returns}
 Count of the item in the stack 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classstk_1_1stack__t_a120f150bc90f8ccf0c0ca8396bda7c65}\label{classstk_1_1stack__t_a120f150bc90f8ccf0c0ca8396bda7c65}} 
+\mbox{\Hypertarget{classstk_1_1stack__t_a4c8dca98c8f18b9d60398ac75aba5af7}\label{classstk_1_1stack__t_a4c8dca98c8f18b9d60398ac75aba5af7}} 
 \index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!top@{top}}
 \index{top@{top}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
 \subsubsection{\texorpdfstring{top()}{top()}}
-{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
-\hyperlink{classstk_1_1stack__t_a05d1586fa8257268f0c1ade7ffc4588e}{value\+\_\+type} \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::top (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t stack\+\_\+size$>$ \\
+Tp \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::top (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Get the item from the stack 
 \begin{DoxyExceptions}{Exceptions}
@@ -177,7 +182,6 @@ the top item from the stack
 \end{DoxyReturn}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Git\+Hub/\+Techno\+Atom/stack/\hyperlink{stack_8h}{stack.\+h}\item 
-D\+:/\+Git\+Hub/\+Techno\+Atom/stack/\hyperlink{stack_8cpp}{stack.\+cpp}\end{DoxyCompactItemize}
+D\+:/\+Git\+Hub/\+Techno\+Atom/stack/\hyperlink{stack_8h}{stack.\+h}\end{DoxyCompactItemize}

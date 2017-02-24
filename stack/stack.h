@@ -5,11 +5,8 @@
 //!
 //! Implements a stack class
 //!
-//! See files:
-//!  - stack.h
-//!  - stack.cpp
 //!
-//! @version 1.0
+//! @version 2.0
 //!
 //! @author ShJ
 //! @date   2017
@@ -21,10 +18,12 @@
 #include <stdexcept>
 //#define NDEBUG
 #include <cassert>
+#include <fstream>
+#include <ctime>
 
 //-----------------------------------------------------------------------------
 //! @namespace stk
-//! There the stack class describes
+//! @brief There the stack class describes
 //-----------------------------------------------------------------------------
 namespace stk {
 
@@ -43,10 +42,10 @@ namespace stk {
 
     //-----------------------------------------------------------------------------
     //! @class stack_t
-    //! @tparam Tp the type of the value in the stack
+    //! @tparam Tp the type of the value in the stack (the default type is int)
     //! @tparam stack_size the capacity of the stack (the default value is 10)
     //-----------------------------------------------------------------------------
-    template<typename Tp, std::size_t stack_size = 10>
+    template<typename Tp = int, std::size_t stack_size = 10>
     class stack_t {
     public:
 
@@ -61,7 +60,7 @@ namespace stk {
         stack_t() :
             top_(0) {
 
-            for (const_value_type item : data_) {
+            for (value_type& item : data_) {
                 item = FREE_POISON_;
             }
         }
@@ -86,10 +85,7 @@ namespace stk {
         //! @throw std::exception From ASSERT_VALID() when stack is not valid
         //! @return the top item from the stack
         //-----------------------------------------------------------------------------
-        value_type top() const {
-            ASSERT_VALID();
-            return data_[top_];
-        }
+        value_type top() const;
 
         //-----------------------------------------------------------------------------
         //! Delete the item from the stack
@@ -100,6 +96,7 @@ namespace stk {
 
         //-----------------------------------------------------------------------------
         //! Append new item in the stack
+        //! @param x The element that will be added to the stack
         //! @throw std::exception From ASSERT_VALID() when stack is not valid
         //! @throw std::out_of_range When the stack is full
         //-----------------------------------------------------------------------------
@@ -121,7 +118,6 @@ namespace stk {
             return !top_;
         }
 
-        //! @private
     private:
 
         //-----------------------------------------------------------------------------
@@ -145,6 +141,81 @@ namespace stk {
         void dump() const;
 
     };
+
+
+    template<typename Tp, std::size_t stack_size>
+    Tp stack_t<Tp, stack_size>::top() const {
+        ASSERT_VALID();
+
+        if (!top_) {
+            throw std::out_of_range("*Error: Stack is empty*");
+        }
+
+        return data_[top_ - 1];
+    }
+
+    template<typename Tp, std::size_t stack_size>
+    void stack_t<Tp, stack_size>::push(const_value_type& x) {
+        ASSERT_VALID();
+
+        if (top_ >= stack_size) {
+            throw std::out_of_range("*Error: Stack is full*");
+        }
+        data_[top_++] = x;
+
+        ASSERT_VALID();
+    }
+
+    template<typename Tp, std::size_t stack_size>
+    void stack_t<Tp, stack_size>::pop() {
+        ASSERT_VALID();
+
+        if (!top_) {
+            throw std::out_of_range("*Error: Stack is empty*");
+        }
+        data_[top_--] = FREE_POISON_;
+
+        ASSERT_VALID();
+    }
+
+    template<typename Tp, std::size_t stack_size>
+    bool stack_t<Tp, stack_size>::is_valid() const {
+
+        if (top_ <= stack_size) {
+            for (size_type i = top_; i < stack_size; ++i) {
+                if (data_[i] != FREE_POISON_) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    template<typename Tp, std::size_t stack_size>
+    void stack_t<Tp, stack_size>::dump() const {
+
+        std::ofstream fout("__stack_dump.txt", std::ios_base::out | std::ios_base::app);
+
+        if (fout.is_open()) {
+            const time_t t = time(nullptr);
+            fout << "*****************\n"
+                    "Class stack_t:\n"
+                    "time: "         << ctime(&t) << "\n"
+                    "satus: "        << (is_valid() ? "ok\n{\n" : "FAIL\n{\n");
+            fout << "\tstack_size: " << stack_size           << "\n"
+                    "\ttop: "        << top_                 << "\n";
+
+            for (size_type i = 0; i < stack_size; ++i) {
+                fout << (i < top_ ? "\t* [" : "\t  [") << i << "]"
+                     << " = " << data_[i]
+                     << (i >= top_ && data_[i] != FREE_POISON_ ? "  //ERROR!\n" : "\n");
+            }
+
+            fout << "}\n";
+        }
+    }
 
 }
 
