@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stack
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.1</span>
    </div>
   </td>
  </tr>
@@ -108,7 +108,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">{\</div><div class="line">    if (!is_valid()) {\</div><div class="line">        dump();\</div><div class="line">        assert(!<span class="stringliteral">&quot;Stack is good&quot;</span>);\</div><div class="line">        throw std::exception();\</div><div class="line">    }\</div><div class="line">}</div></div><!-- fragment --><p>Macro to test object integrity </p><dl class="exception"><dt>Exceptions</dt><dd>
+<b>Value:</b><div class="fragment"><div class="line">{\</div><div class="line">    if (!is_valid()) {\</div><div class="line">        dump(__PRETTY_FUNCTION__);\</div><div class="line">        assert(!<span class="stringliteral">&quot;Stack is good&quot;</span>);\</div><div class="line">        throw std::exception();\</div><div class="line">    }\</div><div class="line">}</div></div><!-- fragment --><p>Macro to test object integrity </p><dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::exception</td><td>Stack is not valid </td></tr>
   </table>

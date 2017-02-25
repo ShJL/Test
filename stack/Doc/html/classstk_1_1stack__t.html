@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stack
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.1</span>
    </div>
   </td>
  </tr>
@@ -124,13 +124,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a50dbd2e6626510af69ba1f38882ca1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb144d5de96aeeed6dee8d902158f1a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#adb144d5de96aeeed6dee8d902158f1a6">empty</a> () const</td></tr>
 <tr class="separator:adb144d5de96aeeed6dee8d902158f1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62b9e32ef2b123939b4c21175b5fc036"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a62b9e32ef2b123939b4c21175b5fc036">full</a> () const</td></tr>
+<tr class="separator:a62b9e32ef2b123939b4c21175b5fc036"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a6c1813c8dc347f0cc9ab94a6e120d743"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a6c1813c8dc347f0cc9ab94a6e120d743">is_valid</a> () const</td></tr>
 <tr class="separator:a6c1813c8dc347f0cc9ab94a6e120d743"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6b1f910422f3402f4ffcc8d496d0273"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#ac6b1f910422f3402f4ffcc8d496d0273">dump</a> () const</td></tr>
-<tr class="separator:ac6b1f910422f3402f4ffcc8d496d0273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dd66fcfd99c93c63cdab500bbf5a7e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a3dd66fcfd99c93c63cdab500bbf5a7e8">dump</a> (const char *function_name) const</td></tr>
+<tr class="separator:a3dd66fcfd99c93c63cdab500bbf5a7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -188,8 +190,8 @@ template&lt;typename Tp  = int, std::size_t stack_size = 10&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac6b1f910422f3402f4ffcc8d496d0273"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6b1f910422f3402f4ffcc8d496d0273">&#9670;&nbsp;</a></span>dump()</h2>
+<a id="a3dd66fcfd99c93c63cdab500bbf5a7e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dd66fcfd99c93c63cdab500bbf5a7e8">&#9670;&nbsp;</a></span>dump()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,7 +204,8 @@ template&lt;typename Tp , std::size_t stack_size&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp, stack_size &gt;::dump </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>function_name</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -212,7 +215,12 @@ template&lt;typename Tp , std::size_t stack_size&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Dumper Create file "__stack_dump.txt" where is information about stack's status </p>
+<p>Dumper Create file "__stack_dump.txt" where is information about stack's status </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">function_name</td><td>Name of function which call this method </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -241,6 +249,34 @@ template&lt;typename Tp  = int, std::size_t stack_size = 10&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Checks the emptiness of the stack </p><dl class="section return"><dt>Returns</dt><dd>true if stack is empty, otherwise false </dd></dl>
+
+</div>
+</div>
+<a id="a62b9e32ef2b123939b4c21175b5fc036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62b9e32ef2b123939b4c21175b5fc036">&#9670;&nbsp;</a></span>full()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tp  = int, std::size_t stack_size = 10&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp, stack_size &gt;::full </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Checks the stack overflow </p><dl class="section return"><dt>Returns</dt><dd>true if stack is full, otherwise false </dd></dl>
 
 </div>
 </div>

@@ -6,7 +6,7 @@
 //! Implements a stack class
 //!
 //!
-//! @version 2.0
+//! @version 2.1
 //!
 //! @author ShJ
 //! @date   2017
@@ -34,7 +34,7 @@ namespace stk {
 //-----------------------------------------------------------------------------
 #define ASSERT_VALID() {\
     if (!is_valid()) {\
-        dump();\
+        dump(__PRETTY_FUNCTION__);\
         assert(!"Stack is good");\
         throw std::exception();\
     }\
@@ -107,6 +107,7 @@ namespace stk {
         //! @return Count of the item in the stack
         //-----------------------------------------------------------------------------
         size_type size() const {
+            ASSERT_VALID();
             return top_;
         }
 
@@ -115,7 +116,17 @@ namespace stk {
         //! @return true if stack is empty, otherwise false
         //-----------------------------------------------------------------------------
         bool empty() const {
+            ASSERT_VALID();
             return !top_;
+        }
+
+        //-----------------------------------------------------------------------------
+        //! Checks the stack overflow
+        //! @return true if stack is full, otherwise false
+        //-----------------------------------------------------------------------------
+        bool full() const {
+            ASSERT_VALID();
+            return top_ == stack_size;
         }
 
     private:
@@ -126,7 +137,7 @@ namespace stk {
         const_value_type FREE_POISON_ = static_cast<const_value_type>(0);
 
         value_type data_[stack_size]; //!< Stack base on array
-        size_type  top_; //!< Pointer on the top item of the stack
+        size_type  top_;              //!< Pointer on the top item of the stack
 
         //-----------------------------------------------------------------------------
         //! Silent verifier
@@ -137,8 +148,9 @@ namespace stk {
         //-----------------------------------------------------------------------------
         //! Dumper
         //! Create file "__stack_dump.txt" where is information about stack's status
+        //! @param function_name Name of function which call this method
         //-----------------------------------------------------------------------------
-        void dump() const;
+        void dump(const char* function_name) const;
 
     };
 
@@ -173,14 +185,13 @@ namespace stk {
         if (!top_) {
             throw std::out_of_range("*Error: Stack is empty*");
         }
-        data_[top_--] = FREE_POISON_;
+        data_[--top_] = FREE_POISON_;
 
         ASSERT_VALID();
     }
 
     template<typename Tp, std::size_t stack_size>
     bool stack_t<Tp, stack_size>::is_valid() const {
-
         if (top_ <= stack_size) {
             for (size_type i = top_; i < stack_size; ++i) {
                 if (data_[i] != FREE_POISON_) {
@@ -194,18 +205,19 @@ namespace stk {
     }
 
     template<typename Tp, std::size_t stack_size>
-    void stack_t<Tp, stack_size>::dump() const {
-
-        std::ofstream fout("__stack_dump.txt", std::ios_base::out | std::ios_base::app);
+    void stack_t<Tp, stack_size>::dump(const char* function_name) const {
+        std::ofstream fout("__stack_dump.txt", std::ios_base::app);
 
         if (fout.is_open()) {
-            const time_t t = time(nullptr);
-            fout << "*****************\n"
+            const time_t time_info = time(nullptr);
+
+            fout << "******************\n"
                     "Class stack_t:\n"
-                    "time: "         << ctime(&t) << "\n"
+                    "time: "         << ctime(&time_info) <<
+                    "function: "     << function_name     << "\n"
                     "satus: "        << (is_valid() ? "ok\n{\n" : "FAIL\n{\n");
-            fout << "\tstack_size: " << stack_size           << "\n"
-                    "\ttop: "        << top_                 << "\n";
+            fout << "\tstack_size: " << stack_size        << "\n"
+                    "\ttop: "        << top_              << "\n\n";
 
             for (size_type i = 0; i < stack_size; ++i) {
                 fout << (i < top_ ? "\t* [" : "\t  [") << i << "]"
@@ -214,6 +226,8 @@ namespace stk {
             }
 
             fout << "}\n";
+
+            fout.close();
         }
     }
 
