@@ -48,6 +48,8 @@ void \hyperlink{classstk_1_1stack__t_aad7638faa441f17e91ba9a8f5663be4c}{push} (\
 \item 
 \hyperlink{classstk_1_1stack__t_ade199c494a8e4455f76cc04faf138ed8}{size\+\_\+type} \hyperlink{classstk_1_1stack__t_a50dbd2e6626510af69ba1f38882ca1b5}{size} () const
 \item 
+\hyperlink{classstk_1_1stack__t_ade199c494a8e4455f76cc04faf138ed8}{size\+\_\+type} \hyperlink{classstk_1_1stack__t_a558f4d8b04d74c04392e47e86723a113}{capacity} () const
+\item 
 bool \hyperlink{classstk_1_1stack__t_adb144d5de96aeeed6dee8d902158f1a6}{empty} () const
 \item 
 bool \hyperlink{classstk_1_1stack__t_a62b9e32ef2b123939b4c21175b5fc036}{full} () const
@@ -79,9 +81,9 @@ class stk\+::stack\+\_\+t$<$ Tp, stack\+\_\+size $>$}
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Tp} & the type of the value in the stack (the default type is int) \\
+{\em Tp} & The type of the value in the stack (the default type is int) \\
 \hline
-{\em stack\+\_\+size} & the capacity of the stack (the default value is 10) \\
+{\em stack\+\_\+size} & The capacity of the stack (the default value is 10) \\
 \hline
 \end{DoxyTemplParams}
 
@@ -97,6 +99,16 @@ class stk\+::stack\+\_\+t$<$ Tp, stack\+\_\+size $>$}
 Default constructor Fill all elements F\+R\+E\+E\+\_\+\+P\+O\+I\+S\+O\+N\+\_\+ 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classstk_1_1stack__t_a558f4d8b04d74c04392e47e86723a113}\label{classstk_1_1stack__t_a558f4d8b04d74c04392e47e86723a113}} 
+\index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!capacity@{capacity}}
+\index{capacity@{capacity}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
+\subsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily template$<$typename Tp  = int, std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
+\hyperlink{classstk_1_1stack__t_ade199c494a8e4455f76cc04faf138ed8}{size\+\_\+type} \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Capacity \begin{DoxyReturn}{Returns}
+Capacity of the stack 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classstk_1_1stack__t_a3dd66fcfd99c93c63cdab500bbf5a7e8}\label{classstk_1_1stack__t_a3dd66fcfd99c93c63cdab500bbf5a7e8}} 
 \index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!dump@{dump}}
 \index{dump@{dump}!stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}}
@@ -116,8 +128,13 @@ Dumper Create file \char`\"{}\+\_\+\+\_\+stack\+\_\+dump.\+txt\char`\"{} where i
 {\footnotesize\ttfamily template$<$typename Tp  = int, std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
 bool \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Checks the emptiness of the stack \begin{DoxyReturn}{Returns}
-true if stack is empty, otherwise false 
+Checks the emptiness of the stack 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & From \hyperlink{stack_8h_a4ad7af85cae2910ffcf6bfbcb8278886}{A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when stack is not valid \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+True if stack is empty, otherwise false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classstk_1_1stack__t_a62b9e32ef2b123939b4c21175b5fc036}\label{classstk_1_1stack__t_a62b9e32ef2b123939b4c21175b5fc036}} 
 \index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!full@{full}}
@@ -126,8 +143,13 @@ true if stack is empty, otherwise false
 {\footnotesize\ttfamily template$<$typename Tp  = int, std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
 bool \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Checks the stack overflow \begin{DoxyReturn}{Returns}
-true if stack is full, otherwise false 
+Checks the stack overflow 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & From \hyperlink{stack_8h_a4ad7af85cae2910ffcf6bfbcb8278886}{A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when stack is not valid \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+True if stack is full, otherwise false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classstk_1_1stack__t_a6c1813c8dc347f0cc9ab94a6e120d743}\label{classstk_1_1stack__t_a6c1813c8dc347f0cc9ab94a6e120d743}} 
 \index{stk\+::stack\+\_\+t@{stk\+::stack\+\_\+t}!is\+\_\+valid@{is\+\_\+valid}}
@@ -179,7 +201,12 @@ Append new item in the stack
 {\footnotesize\ttfamily template$<$typename Tp  = int, std\+::size\+\_\+t stack\+\_\+size = 10$>$ \\
 \hyperlink{classstk_1_1stack__t_ade199c494a8e4455f76cc04faf138ed8}{size\+\_\+type} \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t}$<$ Tp, stack\+\_\+size $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Currently size of the stack \begin{DoxyReturn}{Returns}
+Currently size of the stack 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & From \hyperlink{stack_8h_a4ad7af85cae2910ffcf6bfbcb8278886}{A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when stack is not valid \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
 Count of the item in the stack 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classstk_1_1stack__t_a4c8dca98c8f18b9d60398ac75aba5af7}\label{classstk_1_1stack__t_a4c8dca98c8f18b9d60398ac75aba5af7}} 
@@ -195,7 +222,7 @@ Get the item from the stack
 \hline
 \end{DoxyExceptions}
 \begin{DoxyReturn}{Returns}
-the top item from the stack 
+The top item from the stack 
 \end{DoxyReturn}
 
 

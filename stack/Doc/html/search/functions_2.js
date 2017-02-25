@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['full',['full',['../classstk_1_1stack__t.html#a62b9e32ef2b123939b4c21175b5fc036',1,'stk::stack_t']]]
+  ['empty',['empty',['../classstk_1_1stack__t.html#adb144d5de96aeeed6dee8d902158f1a6',1,'stk::stack_t']]]
 ];

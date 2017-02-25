@@ -6,10 +6,10 @@
 //! Implements a stack class
 //!
 //!
-//! @version 2.1
+//! @version 2.2
 //!
 //! @author ShJ
-//! @date   2017
+//! @date   25.02.2017
 //-----------------------------------------------------------------------------
 #pragma once
 #ifndef STACK_H
@@ -42,8 +42,8 @@ namespace stk {
 
     //-----------------------------------------------------------------------------
     //! @class stack_t
-    //! @tparam Tp the type of the value in the stack (the default type is int)
-    //! @tparam stack_size the capacity of the stack (the default value is 10)
+    //! @tparam Tp The type of the value in the stack (the default type is int)
+    //! @tparam stack_size The capacity of the stack (the default value is 10)
     //-----------------------------------------------------------------------------
     template<typename Tp = int, std::size_t stack_size = 10>
     class stack_t {
@@ -83,7 +83,7 @@ namespace stk {
         //-----------------------------------------------------------------------------
         //! Get the item from the stack
         //! @throw std::exception From ASSERT_VALID() when stack is not valid
-        //! @return the top item from the stack
+        //! @return The top item from the stack
         //-----------------------------------------------------------------------------
         value_type top() const;
 
@@ -104,6 +104,7 @@ namespace stk {
 
         //-----------------------------------------------------------------------------
         //! Currently size of the stack
+        //! @throw std::exception From ASSERT_VALID() when stack is not valid
         //! @return Count of the item in the stack
         //-----------------------------------------------------------------------------
         size_type size() const {
@@ -112,8 +113,17 @@ namespace stk {
         }
 
         //-----------------------------------------------------------------------------
+        //! Capacity
+        //! @return Capacity of the stack
+        //-----------------------------------------------------------------------------
+        size_type capacity() const {
+            return stack_size;
+        }
+
+        //-----------------------------------------------------------------------------
         //! Checks the emptiness of the stack
-        //! @return true if stack is empty, otherwise false
+        //! @throw std::exception From ASSERT_VALID() when stack is not valid
+        //! @return True if stack is empty, otherwise false
         //-----------------------------------------------------------------------------
         bool empty() const {
             ASSERT_VALID();
@@ -122,7 +132,8 @@ namespace stk {
 
         //-----------------------------------------------------------------------------
         //! Checks the stack overflow
-        //! @return true if stack is full, otherwise false
+        //! @throw std::exception From ASSERT_VALID() when stack is not valid
+        //! @return True if stack is full, otherwise false
         //-----------------------------------------------------------------------------
         bool full() const {
             ASSERT_VALID();
