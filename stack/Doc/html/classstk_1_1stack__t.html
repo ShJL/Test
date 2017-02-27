@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Stack: stk::stack_t&lt; Tp, stack_size &gt; Class Template Reference</title>
+<title>Stack: stk::stack_t&lt; Tp &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stack
-   &#160;<span id="projectnumber">2.2</span>
+   &#160;<span id="projectnumber">3.0</span>
    </div>
   </td>
  </tr>
@@ -70,112 +70,177 @@ $(function() {
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classstk_1_1stack__t-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stk::stack_t&lt; Tp, stack_size &gt; Class Template Reference</div>  </div>
+<div class="title">stk::stack_t&lt; Tp &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="stack_8h_source.html">stack.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stk::stack_t&lt; Tp, stack_size &gt;:</div>
+Collaboration diagram for stk::stack_t&lt; Tp &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="classstk_1_1stack__t__coll__graph.png" border="0" usemap="#stk_1_1stack__t_3_01_tp_00_01stack__size_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stk_1_1stack__t_3_01_tp_00_01stack__size_01_4_coll__map" id="stk_1_1stack__t_3_01_tp_00_01stack__size_01_4_coll__map">
+<div class="center"><img src="classstk_1_1stack__t__coll__graph.png" border="0" usemap="#stk_1_1stack__t_3_01_tp_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stk_1_1stack__t_3_01_tp_01_4_coll__map" id="stk_1_1stack__t_3_01_tp_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a05d1586fa8257268f0c1ade7ffc4588e"><td class="memItemLeft" align="right" valign="top"><a id="a05d1586fa8257268f0c1ade7ffc4588e"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a05d1586fa8257268f0c1ade7ffc4588e">value_type</a> = Tp</td></tr>
-<tr class="memdesc:a05d1586fa8257268f0c1ade7ffc4588e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element type. <br /></td></tr>
-<tr class="separator:a05d1586fa8257268f0c1ade7ffc4588e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27d586bc06e0faf30a2a980cd8ffd125"><td class="memItemLeft" align="right" valign="top"><a id="a27d586bc06e0faf30a2a980cd8ffd125"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a27d586bc06e0faf30a2a980cd8ffd125">const_value_type</a> = const Tp</td></tr>
-<tr class="memdesc:a27d586bc06e0faf30a2a980cd8ffd125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const element type. <br /></td></tr>
-<tr class="separator:a27d586bc06e0faf30a2a980cd8ffd125"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade199c494a8e4455f76cc04faf138ed8"><td class="memItemLeft" align="right" valign="top"><a id="ade199c494a8e4455f76cc04faf138ed8"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#ade199c494a8e4455f76cc04faf138ed8">size_type</a> = std::size_t</td></tr>
-<tr class="memdesc:ade199c494a8e4455f76cc04faf138ed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size type. <br /></td></tr>
-<tr class="separator:ade199c494a8e4455f76cc04faf138ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e10db77beb285902df2b32f30209067"><td class="memItemLeft" align="right" valign="top"><a id="a2e10db77beb285902df2b32f30209067"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a2e10db77beb285902df2b32f30209067">value_type</a> = Tp</td></tr>
+<tr class="memdesc:a2e10db77beb285902df2b32f30209067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element type. <br /></td></tr>
+<tr class="separator:a2e10db77beb285902df2b32f30209067"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0beb74f603c2354cb9af98ee65801ce7"><td class="memItemLeft" align="right" valign="top"><a id="a0beb74f603c2354cb9af98ee65801ce7"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a0beb74f603c2354cb9af98ee65801ce7">const_value_type</a> = const Tp</td></tr>
+<tr class="memdesc:a0beb74f603c2354cb9af98ee65801ce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const element type. <br /></td></tr>
+<tr class="separator:a0beb74f603c2354cb9af98ee65801ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a591d5ffc540c9f27e5618f9aa4d67cad"><td class="memItemLeft" align="right" valign="top"><a id="a591d5ffc540c9f27e5618f9aa4d67cad"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a591d5ffc540c9f27e5618f9aa4d67cad">size_type</a> = std::size_t</td></tr>
+<tr class="memdesc:a591d5ffc540c9f27e5618f9aa4d67cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size type. <br /></td></tr>
+<tr class="separator:a591d5ffc540c9f27e5618f9aa4d67cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab7605ffb3efbfdaf23c1411dba8076d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#ab7605ffb3efbfdaf23c1411dba8076d7">stack_t</a> ()</td></tr>
-<tr class="separator:ab7605ffb3efbfdaf23c1411dba8076d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27abcc49011f8cd22cd92395655f8ca4"><td class="memItemLeft" align="right" valign="top"><a id="a27abcc49011f8cd22cd92395655f8ca4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a27abcc49011f8cd22cd92395655f8ca4">stack_t</a> (const <a class="el" href="classstk_1_1stack__t.html">stack_t</a> &amp;)=default</td></tr>
-<tr class="memdesc:a27abcc49011f8cd22cd92395655f8ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default the copy constructor. <br /></td></tr>
-<tr class="separator:a27abcc49011f8cd22cd92395655f8ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a680884feaecd4cb19ea890893c583fdb"><td class="memItemLeft" align="right" valign="top"><a id="a680884feaecd4cb19ea890893c583fdb"></a>
-<a class="el" href="classstk_1_1stack__t.html">stack_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a680884feaecd4cb19ea890893c583fdb">operator=</a> (const <a class="el" href="classstk_1_1stack__t.html">stack_t</a> &amp;)=default</td></tr>
-<tr class="memdesc:a680884feaecd4cb19ea890893c583fdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default the assignment operator. <br /></td></tr>
-<tr class="separator:a680884feaecd4cb19ea890893c583fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd6dfd6efc2edad5c9bd8f126c415a69"><td class="memItemLeft" align="right" valign="top"><a id="acd6dfd6efc2edad5c9bd8f126c415a69"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#acd6dfd6efc2edad5c9bd8f126c415a69">~stack_t</a> ()=default</td></tr>
-<tr class="memdesc:acd6dfd6efc2edad5c9bd8f126c415a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br /></td></tr>
-<tr class="separator:acd6dfd6efc2edad5c9bd8f126c415a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c8dca98c8f18b9d60398ac75aba5af7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstk_1_1stack__t.html#a05d1586fa8257268f0c1ade7ffc4588e">value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a4c8dca98c8f18b9d60398ac75aba5af7">top</a> () const</td></tr>
-<tr class="separator:a4c8dca98c8f18b9d60398ac75aba5af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5be99b150a46b8456643cbc40bcefca8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a5be99b150a46b8456643cbc40bcefca8">pop</a> ()</td></tr>
-<tr class="separator:a5be99b150a46b8456643cbc40bcefca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad7638faa441f17e91ba9a8f5663be4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#aad7638faa441f17e91ba9a8f5663be4c">push</a> (<a class="el" href="classstk_1_1stack__t.html#a27d586bc06e0faf30a2a980cd8ffd125">const_value_type</a> &amp;x)</td></tr>
-<tr class="separator:aad7638faa441f17e91ba9a8f5663be4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50dbd2e6626510af69ba1f38882ca1b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstk_1_1stack__t.html#ade199c494a8e4455f76cc04faf138ed8">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a50dbd2e6626510af69ba1f38882ca1b5">size</a> () const</td></tr>
-<tr class="separator:a50dbd2e6626510af69ba1f38882ca1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a558f4d8b04d74c04392e47e86723a113"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstk_1_1stack__t.html#ade199c494a8e4455f76cc04faf138ed8">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a558f4d8b04d74c04392e47e86723a113">capacity</a> () const</td></tr>
-<tr class="separator:a558f4d8b04d74c04392e47e86723a113"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb144d5de96aeeed6dee8d902158f1a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#adb144d5de96aeeed6dee8d902158f1a6">empty</a> () const</td></tr>
-<tr class="separator:adb144d5de96aeeed6dee8d902158f1a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62b9e32ef2b123939b4c21175b5fc036"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a62b9e32ef2b123939b4c21175b5fc036">full</a> () const</td></tr>
-<tr class="separator:a62b9e32ef2b123939b4c21175b5fc036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f2c6c72f3cc6d0b55c37c18ba77935"><td class="memItemLeft" align="right" valign="top"><a id="ad8f2c6c72f3cc6d0b55c37c18ba77935"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#ad8f2c6c72f3cc6d0b55c37c18ba77935">stack_t</a> ()</td></tr>
+<tr class="memdesc:ad8f2c6c72f3cc6d0b55c37c18ba77935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:ad8f2c6c72f3cc6d0b55c37c18ba77935"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf68532e10f96d64c7745372dd1afba2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#acf68532e10f96d64c7745372dd1afba2">stack_t</a> (const <a class="el" href="classstk_1_1stack__t.html#a591d5ffc540c9f27e5618f9aa4d67cad">size_type</a> n)</td></tr>
+<tr class="separator:acf68532e10f96d64c7745372dd1afba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b1b45543c317bead3fe05ba64618ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#ac5b1b45543c317bead3fe05ba64618ae">stack_t</a> (const <a class="el" href="classstk_1_1stack__t.html">stack_t</a> &amp;stack)</td></tr>
+<tr class="separator:ac5b1b45543c317bead3fe05ba64618ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae89dec429ddba4dda06f6c57fc688cc9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstk_1_1stack__t.html">stack_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#ae89dec429ddba4dda06f6c57fc688cc9">operator=</a> (const <a class="el" href="classstk_1_1stack__t.html">stack_t</a> &amp;stack)</td></tr>
+<tr class="separator:ae89dec429ddba4dda06f6c57fc688cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45e9376d38de6b4c43c0edd54138edaa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a45e9376d38de6b4c43c0edd54138edaa">~stack_t</a> ()</td></tr>
+<tr class="separator:a45e9376d38de6b4c43c0edd54138edaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8850aa2ebf5ab0be43549a49b4d24339"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstk_1_1stack__t.html#a2e10db77beb285902df2b32f30209067">value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a8850aa2ebf5ab0be43549a49b4d24339">top</a> () const</td></tr>
+<tr class="separator:a8850aa2ebf5ab0be43549a49b4d24339"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a498151ba872e2b9ae2f9326b80efbbd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a498151ba872e2b9ae2f9326b80efbbd3">pop</a> ()</td></tr>
+<tr class="separator:a498151ba872e2b9ae2f9326b80efbbd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17e043f3eb3b4ae3b0494a4e0ff1a1b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a17e043f3eb3b4ae3b0494a4e0ff1a1b5">push</a> (<a class="el" href="classstk_1_1stack__t.html#a0beb74f603c2354cb9af98ee65801ce7">const_value_type</a> &amp;x)</td></tr>
+<tr class="separator:a17e043f3eb3b4ae3b0494a4e0ff1a1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3770048637478cc005d11a47ee4df148"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstk_1_1stack__t.html#a591d5ffc540c9f27e5618f9aa4d67cad">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a3770048637478cc005d11a47ee4df148">size</a> () const</td></tr>
+<tr class="separator:a3770048637478cc005d11a47ee4df148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04b3af82e2cf60df75bf3b8507c5de9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstk_1_1stack__t.html#a591d5ffc540c9f27e5618f9aa4d67cad">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a04b3af82e2cf60df75bf3b8507c5de9a">capacity</a> () const</td></tr>
+<tr class="separator:a04b3af82e2cf60df75bf3b8507c5de9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4878c2c4a3b11d35b67323a0f473813"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#ab4878c2c4a3b11d35b67323a0f473813">empty</a> () const</td></tr>
+<tr class="separator:ab4878c2c4a3b11d35b67323a0f473813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bbfc186d4b0eab296b620b72d8f872d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a4bbfc186d4b0eab296b620b72d8f872d">reserve</a> (const <a class="el" href="classstk_1_1stack__t.html#a591d5ffc540c9f27e5618f9aa4d67cad">size_type</a> n)</td></tr>
+<tr class="separator:a4bbfc186d4b0eab296b620b72d8f872d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a6c1813c8dc347f0cc9ab94a6e120d743"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a6c1813c8dc347f0cc9ab94a6e120d743">is_valid</a> () const</td></tr>
-<tr class="separator:a6c1813c8dc347f0cc9ab94a6e120d743"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dd66fcfd99c93c63cdab500bbf5a7e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a3dd66fcfd99c93c63cdab500bbf5a7e8">dump</a> (const char *function_name) const</td></tr>
-<tr class="separator:a3dd66fcfd99c93c63cdab500bbf5a7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a981df1d2676a6253d943c8b42db6e8f0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a981df1d2676a6253d943c8b42db6e8f0">is_valid</a> () const</td></tr>
+<tr class="separator:a981df1d2676a6253d943c8b42db6e8f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b880836e779c81052eb82e7f435ab54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a5b880836e779c81052eb82e7f435ab54">dump</a> (const char *function_name) const</td></tr>
+<tr class="separator:a5b880836e779c81052eb82e7f435ab54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a34489e147dc7052c6ee4eaa70c31c009"><td class="memItemLeft" align="right" valign="top"><a id="a34489e147dc7052c6ee4eaa70c31c009"></a>
-<a class="el" href="classstk_1_1stack__t.html#a27d586bc06e0faf30a2a980cd8ffd125">const_value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a34489e147dc7052c6ee4eaa70c31c009">FREE_POISON_</a> = static_cast&lt;<a class="el" href="classstk_1_1stack__t.html#a27d586bc06e0faf30a2a980cd8ffd125">const_value_type</a>&gt;(0)</td></tr>
-<tr class="memdesc:a34489e147dc7052c6ee4eaa70c31c009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant for mark the empty fields. <br /></td></tr>
-<tr class="separator:a34489e147dc7052c6ee4eaa70c31c009"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a740287c74a7e188220ef94e4dbd5a3ea"><td class="memItemLeft" align="right" valign="top"><a id="a740287c74a7e188220ef94e4dbd5a3ea"></a>
-<a class="el" href="classstk_1_1stack__t.html#a05d1586fa8257268f0c1ade7ffc4588e">value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a740287c74a7e188220ef94e4dbd5a3ea">data_</a> [stack_size]</td></tr>
-<tr class="memdesc:a740287c74a7e188220ef94e4dbd5a3ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stack base on array. <br /></td></tr>
-<tr class="separator:a740287c74a7e188220ef94e4dbd5a3ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c23414b1fa07a11c14f2abb029ee676"><td class="memItemLeft" align="right" valign="top"><a id="a9c23414b1fa07a11c14f2abb029ee676"></a>
-<a class="el" href="classstk_1_1stack__t.html#ade199c494a8e4455f76cc04faf138ed8">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a9c23414b1fa07a11c14f2abb029ee676">top_</a></td></tr>
-<tr class="memdesc:a9c23414b1fa07a11c14f2abb029ee676"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer on the top item of the stack. <br /></td></tr>
-<tr class="separator:a9c23414b1fa07a11c14f2abb029ee676"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaff281674605712b238b9d482b0d395"><td class="memItemLeft" align="right" valign="top"><a id="aeaff281674605712b238b9d482b0d395"></a>
+<a class="el" href="classstk_1_1stack__t.html#a0beb74f603c2354cb9af98ee65801ce7">const_value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#aeaff281674605712b238b9d482b0d395">FREE_POISON_</a> = <a class="el" href="classstk_1_1stack__t.html#a2e10db77beb285902df2b32f30209067">value_type</a>()</td></tr>
+<tr class="memdesc:aeaff281674605712b238b9d482b0d395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant for mark the empty fields. <br /></td></tr>
+<tr class="separator:aeaff281674605712b238b9d482b0d395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72607554a016dbb0e6b5cc92accdce03"><td class="memItemLeft" align="right" valign="top"><a id="a72607554a016dbb0e6b5cc92accdce03"></a>
+const <a class="el" href="classstk_1_1stack__t.html#a591d5ffc540c9f27e5618f9aa4d67cad">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a72607554a016dbb0e6b5cc92accdce03">MEMORY_MULTIPLIER_</a> = 2u</td></tr>
+<tr class="memdesc:a72607554a016dbb0e6b5cc92accdce03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant memory increase. <br /></td></tr>
+<tr class="separator:a72607554a016dbb0e6b5cc92accdce03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa26173e9f9fe76e7e28ca71b1e17c9ef"><td class="memItemLeft" align="right" valign="top"><a id="aa26173e9f9fe76e7e28ca71b1e17c9ef"></a>
+<a class="el" href="classstk_1_1stack__t.html#a591d5ffc540c9f27e5618f9aa4d67cad">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#aa26173e9f9fe76e7e28ca71b1e17c9ef">top_</a></td></tr>
+<tr class="memdesc:aa26173e9f9fe76e7e28ca71b1e17c9ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer on the top item of the stack. <br /></td></tr>
+<tr class="separator:aa26173e9f9fe76e7e28ca71b1e17c9ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace387ef68b512dd54537f2c8ebe3d0d5"><td class="memItemLeft" align="right" valign="top"><a id="ace387ef68b512dd54537f2c8ebe3d0d5"></a>
+<a class="el" href="classstk_1_1stack__t.html#a591d5ffc540c9f27e5618f9aa4d67cad">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#ace387ef68b512dd54537f2c8ebe3d0d5">capacity_</a></td></tr>
+<tr class="memdesc:ace387ef68b512dd54537f2c8ebe3d0d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Capacity of the stack. <br /></td></tr>
+<tr class="separator:ace387ef68b512dd54537f2c8ebe3d0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a828b3c97415c648a9155e4f643d2ccb9"><td class="memItemLeft" align="right" valign="top"><a id="a828b3c97415c648a9155e4f643d2ccb9"></a>
+<a class="el" href="classstk_1_1stack__t.html#a2e10db77beb285902df2b32f30209067">value_type</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstk_1_1stack__t.html#a828b3c97415c648a9155e4f643d2ccb9">data_</a></td></tr>
+<tr class="memdesc:a828b3c97415c648a9155e4f643d2ccb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stack base on dynamic array. <br /></td></tr>
+<tr class="separator:a828b3c97415c648a9155e4f643d2ccb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename Tp = int, std::size_t stack_size = 10&gt;<br />
-class stk::stack_t&lt; Tp, stack_size &gt;</h3>
+<div class="textblock"><h3>template&lt;typename Tp = int&gt;<br />
+class stk::stack_t&lt; Tp &gt;</h3>
 
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Tp</td><td>The type of the value in the stack (the default type is int) </td></tr>
-    <tr><td class="paramname">stack_size</td><td>The capacity of the stack (the default value is 10) </td></tr>
   </table>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab7605ffb3efbfdaf23c1411dba8076d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7605ffb3efbfdaf23c1411dba8076d7">&#9670;&nbsp;</a></span>stack_t()</h2>
+<a id="acf68532e10f96d64c7745372dd1afba2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf68532e10f96d64c7745372dd1afba2">&#9670;&nbsp;</a></span>stack_t() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Tp  = int, std::size_t stack_size = 10&gt; </div>
+template&lt;typename Tp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp, stack_size &gt;::<a class="el" href="classstk_1_1stack__t.html">stack_t</a> </td>
+          <td class="memname"><a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::<a class="el" href="classstk_1_1stack__t.html">stack_t</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstk_1_1stack__t.html#a591d5ffc540c9f27e5618f9aa4d67cad">size_type</a>&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructor Reserve memory to n elements </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The number of elements for which memory is allocated </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac5b1b45543c317bead3fe05ba64618ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5b1b45543c317bead3fe05ba64618ae">&#9670;&nbsp;</a></span>stack_t() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tp &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::<a class="el" href="classstk_1_1stack__t.html">stack_t</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstk_1_1stack__t.html">stack_t</a>&lt; Tp &gt; &amp;&#160;</td>
+          <td class="paramname"><em>stack</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The copy constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stack</td><td>The copy source </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a45e9376d38de6b4c43c0edd54138edaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45e9376d38de6b4c43c0edd54138edaa">&#9670;&nbsp;</a></span>~stack_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tp = int&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::~<a class="el" href="classstk_1_1stack__t.html">stack_t</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -187,24 +252,24 @@ template&lt;typename Tp  = int, std::size_t stack_size = 10&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Default constructor Fill all elements FREE_POISON_ </p>
+<p>Destructor Removes allocated memory </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a558f4d8b04d74c04392e47e86723a113"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a558f4d8b04d74c04392e47e86723a113">&#9670;&nbsp;</a></span>capacity()</h2>
+<a id="a04b3af82e2cf60df75bf3b8507c5de9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04b3af82e2cf60df75bf3b8507c5de9a">&#9670;&nbsp;</a></span>capacity()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Tp  = int, std::size_t stack_size = 10&gt; </div>
+template&lt;typename Tp = int&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstk_1_1stack__t.html#ade199c494a8e4455f76cc04faf138ed8">size_type</a> <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp, stack_size &gt;::capacity </td>
+          <td class="memname"><a class="el" href="classstk_1_1stack__t.html#a591d5ffc540c9f27e5618f9aa4d67cad">size_type</a> <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::capacity </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -220,19 +285,19 @@ template&lt;typename Tp  = int, std::size_t stack_size = 10&gt; </div>
 
 </div>
 </div>
-<a id="a3dd66fcfd99c93c63cdab500bbf5a7e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3dd66fcfd99c93c63cdab500bbf5a7e8">&#9670;&nbsp;</a></span>dump()</h2>
+<a id="a5b880836e779c81052eb82e7f435ab54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b880836e779c81052eb82e7f435ab54">&#9670;&nbsp;</a></span>dump()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Tp , std::size_t stack_size&gt; </div>
+template&lt;typename Tp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp, stack_size &gt;::dump </td>
+          <td class="memname">void <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::dump </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>function_name</em></td><td>)</td>
@@ -254,19 +319,19 @@ template&lt;typename Tp , std::size_t stack_size&gt; </div>
 
 </div>
 </div>
-<a id="adb144d5de96aeeed6dee8d902158f1a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb144d5de96aeeed6dee8d902158f1a6">&#9670;&nbsp;</a></span>empty()</h2>
+<a id="ab4878c2c4a3b11d35b67323a0f473813"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4878c2c4a3b11d35b67323a0f473813">&#9670;&nbsp;</a></span>empty()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Tp  = int, std::size_t stack_size = 10&gt; </div>
+template&lt;typename Tp = int&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp, stack_size &gt;::empty </td>
+          <td class="memname">bool <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::empty </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -288,53 +353,19 @@ template&lt;typename Tp  = int, std::size_t stack_size = 10&gt; </div>
 
 </div>
 </div>
-<a id="a62b9e32ef2b123939b4c21175b5fc036"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62b9e32ef2b123939b4c21175b5fc036">&#9670;&nbsp;</a></span>full()</h2>
+<a id="a981df1d2676a6253d943c8b42db6e8f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a981df1d2676a6253d943c8b42db6e8f0">&#9670;&nbsp;</a></span>is_valid()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Tp  = int, std::size_t stack_size = 10&gt; </div>
+template&lt;typename Tp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp, stack_size &gt;::full </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Checks the stack overflow </p><dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::exception</td><td>From <a class="el" href="stack_8h.html#a4ad7af85cae2910ffcf6bfbcb8278886">ASSERT_VALID()</a> when stack is not valid </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if stack is full, otherwise false </dd></dl>
-
-</div>
-</div>
-<a id="a6c1813c8dc347f0cc9ab94a6e120d743"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c1813c8dc347f0cc9ab94a6e120d743">&#9670;&nbsp;</a></span>is_valid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Tp , std::size_t stack_size&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp, stack_size &gt;::is_valid </td>
+          <td class="memname">bool <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::is_valid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -350,16 +381,43 @@ template&lt;typename Tp , std::size_t stack_size&gt; </div>
 
 </div>
 </div>
-<a id="a5be99b150a46b8456643cbc40bcefca8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5be99b150a46b8456643cbc40bcefca8">&#9670;&nbsp;</a></span>pop()</h2>
+<a id="ae89dec429ddba4dda06f6c57fc688cc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae89dec429ddba4dda06f6c57fc688cc9">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Tp , std::size_t stack_size&gt; </div>
+template&lt;typename Tp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp, stack_size &gt;::pop </td>
+          <td class="memname"><a class="el" href="classstk_1_1stack__t.html">stack_t</a>&lt; Tp &gt; &amp; <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstk_1_1stack__t.html">stack_t</a>&lt; Tp &gt; &amp;&#160;</td>
+          <td class="paramname"><em>stack</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The assignment operator </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stack</td><td>The source of the assignment </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the calling object </dd></dl>
+
+</div>
+</div>
+<a id="a498151ba872e2b9ae2f9326b80efbbd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a498151ba872e2b9ae2f9326b80efbbd3">&#9670;&nbsp;</a></span>pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tp &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::pop </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -376,18 +434,18 @@ template&lt;typename Tp , std::size_t stack_size&gt; </div>
 
 </div>
 </div>
-<a id="aad7638faa441f17e91ba9a8f5663be4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad7638faa441f17e91ba9a8f5663be4c">&#9670;&nbsp;</a></span>push()</h2>
+<a id="a17e043f3eb3b4ae3b0494a4e0ff1a1b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17e043f3eb3b4ae3b0494a4e0ff1a1b5">&#9670;&nbsp;</a></span>push()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Tp , std::size_t stack_size&gt; </div>
+template&lt;typename Tp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp, stack_size &gt;::push </td>
+          <td class="memname">void <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::push </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classstk_1_1stack__t.html#a27d586bc06e0faf30a2a980cd8ffd125">const_value_type</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classstk_1_1stack__t.html#a0beb74f603c2354cb9af98ee65801ce7">const_value_type</a> &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
@@ -402,26 +460,53 @@ template&lt;typename Tp , std::size_t stack_size&gt; </div>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::exception</td><td>From <a class="el" href="stack_8h.html#a4ad7af85cae2910ffcf6bfbcb8278886">ASSERT_VALID()</a> when stack is not valid </td></tr>
-    <tr><td class="paramname">std::out_of_range</td><td>When the stack is full </td></tr>
+    <tr><td class="paramname">std::bad_alloc</td><td>When the memory is not allocated </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a50dbd2e6626510af69ba1f38882ca1b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50dbd2e6626510af69ba1f38882ca1b5">&#9670;&nbsp;</a></span>size()</h2>
+<a id="a4bbfc186d4b0eab296b620b72d8f872d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bbfc186d4b0eab296b620b72d8f872d">&#9670;&nbsp;</a></span>reserve()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Tp  = int, std::size_t stack_size = 10&gt; </div>
+template&lt;typename Tp &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::reserve </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstk_1_1stack__t.html#a591d5ffc540c9f27e5618f9aa4d67cad">size_type</a>&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reserve a memory </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The number of elements for which memory is allocated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if memory allocated, otherwise false </dd></dl>
+
+</div>
+</div>
+<a id="a3770048637478cc005d11a47ee4df148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3770048637478cc005d11a47ee4df148">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Tp = int&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstk_1_1stack__t.html#ade199c494a8e4455f76cc04faf138ed8">size_type</a> <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp, stack_size &gt;::size </td>
+          <td class="memname"><a class="el" href="classstk_1_1stack__t.html#a591d5ffc540c9f27e5618f9aa4d67cad">size_type</a> <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -433,26 +518,20 @@ template&lt;typename Tp  = int, std::size_t stack_size = 10&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Currently size of the stack </p><dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::exception</td><td>From <a class="el" href="stack_8h.html#a4ad7af85cae2910ffcf6bfbcb8278886">ASSERT_VALID()</a> when stack is not valid </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Count of the item in the stack </dd></dl>
+<p>Currently size of the stack </p><dl class="section return"><dt>Returns</dt><dd>Count of the item in the stack </dd></dl>
 
 </div>
 </div>
-<a id="a4c8dca98c8f18b9d60398ac75aba5af7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c8dca98c8f18b9d60398ac75aba5af7">&#9670;&nbsp;</a></span>top()</h2>
+<a id="a8850aa2ebf5ab0be43549a49b4d24339"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8850aa2ebf5ab0be43549a49b4d24339">&#9670;&nbsp;</a></span>top()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Tp , std::size_t stack_size&gt; </div>
+template&lt;typename Tp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Tp <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp, stack_size &gt;::top </td>
+          <td class="memname">Tp <a class="el" href="classstk_1_1stack__t.html">stk::stack_t</a>&lt; Tp &gt;::top </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>

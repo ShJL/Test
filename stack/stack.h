@@ -6,20 +6,21 @@
 //! Implements a stack class
 //!
 //!
-//! @version 2.2
+//! @version 3.0
 //!
 //! @author ShJ
-//! @date   25.02.2017
+//! @date   27.02.2017
 //-----------------------------------------------------------------------------
 #pragma once
-#ifndef STACK_H
-#define STACK_H
+#ifndef STK_STACK_H
+#define STK_STACK_H
 
 #include <stdexcept>
 //#define NDEBUG
 #include <cassert>
 #include <fstream>
 #include <ctime>
+#include <algorithm>
 
 //-----------------------------------------------------------------------------
 //! @namespace stk
@@ -43,9 +44,8 @@ namespace stk {
     //-----------------------------------------------------------------------------
     //! @class stack_t
     //! @tparam Tp The type of the value in the stack (the default type is int)
-    //! @tparam stack_size The capacity of the stack (the default value is 10)
     //-----------------------------------------------------------------------------
-    template<typename Tp = int, std::size_t stack_size = 10>
+    template<typename Tp = int>
     class stack_t {
     public:
 
@@ -55,30 +55,40 @@ namespace stk {
 
         //-----------------------------------------------------------------------------
         //! Default constructor
-        //! Fill all elements FREE_POISON_
         //-----------------------------------------------------------------------------
         stack_t() :
-            top_(0) {
+            top_     (0u),
+            capacity_(0u),
+            data_    (nullptr)
+        { }
 
-            for (value_type& item : data_) {
-                item = FREE_POISON_;
-            }
+        //-----------------------------------------------------------------------------
+        //! Constructor
+        //! Reserve memory to n elements
+        //! @param n The number of elements for which memory is allocated
+        //-----------------------------------------------------------------------------
+        explicit stack_t(const size_type n);
+
+        //-----------------------------------------------------------------------------
+        //! The copy constructor
+        //! @param stack The copy source
+        //-----------------------------------------------------------------------------
+        stack_t(const stack_t& stack);
+
+        //-----------------------------------------------------------------------------
+        //! The assignment operator
+        //! @param stack The source of the assignment
+        //! @return Reference to the calling object
+        //-----------------------------------------------------------------------------
+        stack_t& operator=(const stack_t& stack);
+
+        //-----------------------------------------------------------------------------
+        //! Destructor
+        //! Removes allocated memory
+        //-----------------------------------------------------------------------------
+        ~stack_t() {
+            delete[] data_;
         }
-
-        //-----------------------------------------------------------------------------
-        //! Default the copy constructor
-        //-----------------------------------------------------------------------------
-        stack_t(const stack_t&) = default;
-
-        //-----------------------------------------------------------------------------
-        //! Default the assignment operator
-        //-----------------------------------------------------------------------------
-        stack_t& operator=(const stack_t&) = default;
-
-        //-----------------------------------------------------------------------------
-        //! Default destructor
-        //-----------------------------------------------------------------------------
-        ~stack_t() = default;
 
         //-----------------------------------------------------------------------------
         //! Get the item from the stack
@@ -98,17 +108,15 @@ namespace stk {
         //! Append new item in the stack
         //! @param x The element that will be added to the stack
         //! @throw std::exception From ASSERT_VALID() when stack is not valid
-        //! @throw std::out_of_range When the stack is full
+        //! @throw std::bad_alloc When the memory is not allocated
         //-----------------------------------------------------------------------------
         void push(const_value_type& x);
 
         //-----------------------------------------------------------------------------
         //! Currently size of the stack
-        //! @throw std::exception From ASSERT_VALID() when stack is not valid
         //! @return Count of the item in the stack
         //-----------------------------------------------------------------------------
         size_type size() const {
-            ASSERT_VALID();
             return top_;
         }
 
@@ -117,7 +125,7 @@ namespace stk {
         //! @return Capacity of the stack
         //-----------------------------------------------------------------------------
         size_type capacity() const {
-            return stack_size;
+            return capacity_;
         }
 
         //-----------------------------------------------------------------------------
@@ -131,24 +139,27 @@ namespace stk {
         }
 
         //-----------------------------------------------------------------------------
-        //! Checks the stack overflow
-        //! @throw std::exception From ASSERT_VALID() when stack is not valid
-        //! @return True if stack is full, otherwise false
+        //! Reserve a memory
+        //! @param n The number of elements for which memory is allocated
+        //! @return True if memory allocated, otherwise false
         //-----------------------------------------------------------------------------
-        bool full() const {
-            ASSERT_VALID();
-            return top_ == stack_size;
-        }
+        bool reserve(const size_type n);
 
     private:
 
         //-----------------------------------------------------------------------------
         //! Constant for mark the empty fields
         //-----------------------------------------------------------------------------
-        const_value_type FREE_POISON_ = static_cast<const_value_type>(0);
+        const_value_type FREE_POISON_ = value_type();
 
-        value_type data_[stack_size]; //!< Stack base on array
-        size_type  top_;              //!< Pointer on the top item of the stack
+        //-----------------------------------------------------------------------------
+        //! Constant memory increase
+        //-----------------------------------------------------------------------------
+        const size_type MEMORY_MULTIPLIER_ = 2u;
+
+        size_type  top_;      //!< Pointer on the top item of the stack
+        size_type  capacity_; //!< Capacity of the stack
+        value_type *data_;    //!< Stack base on dynamic array
 
         //-----------------------------------------------------------------------------
         //! Silent verifier
@@ -166,8 +177,66 @@ namespace stk {
     };
 
 
-    template<typename Tp, std::size_t stack_size>
-    Tp stack_t<Tp, stack_size>::top() const {
+    template<typename Tp>
+    stack_t<Tp>::stack_t(const size_type n) :
+        top_     (0u),
+        capacity_(n) {
+
+        if (capacity_) {
+            try {
+                data_ = new value_type[capacity_];
+            }
+            catch (std::bad_alloc) {
+                data_ = nullptr;
+                capacity_ = 0;
+                return;
+            }
+
+            std::fill(data_, data_ + capacity_, FREE_POISON_);
+        }
+        else {
+            data_ = nullptr;
+            capacity_ = 0;
+        }
+    }
+
+    template<typename Tp>
+    stack_t<Tp>::stack_t(const stack_t<Tp>& stack) :
+        top_     (stack.top_),
+        capacity_(stack.top_) {
+
+        if (capacity_) {
+            try {
+                data_ = new value_type[capacity_];
+            }
+            catch (std::bad_alloc) {
+                data_ = nullptr;
+                top_ = capacity_ = 0;
+                return;
+            }
+
+            std::copy(stack.data_, stack.data_ + stack.top_, data_);
+            std::fill(stack.data_ + stack.top_, stack.data_ + stack.capacity_, FREE_POISON_);
+        }
+        else {
+            data_ = nullptr;
+            top_ = capacity_ = 0;
+        }
+    }
+
+    template<typename Tp>
+    stack_t<Tp>& stack_t<Tp>::operator=(const stack_t& stack) {
+        stack_t<value_type> tmp_stack(stack);
+
+        std::swap(tmp_stack.data_, data_);
+        capacity_ = tmp_stack.capacity_;
+        top_ = tmp_stack.top_;
+
+        return *this;
+    }
+
+    template<typename Tp>
+    Tp stack_t<Tp>::top() const {
         ASSERT_VALID();
 
         if (!top_) {
@@ -177,20 +246,26 @@ namespace stk {
         return data_[top_ - 1];
     }
 
-    template<typename Tp, std::size_t stack_size>
-    void stack_t<Tp, stack_size>::push(const_value_type& x) {
+    template<typename Tp>
+    void stack_t<Tp>::push(const_value_type& x) {
         ASSERT_VALID();
 
-        if (top_ >= stack_size) {
-            throw std::out_of_range("*Error: Stack is full*");
+        try {
+            if (top_ >= capacity_ && !reserve(capacity_ + 1)) {
+                throw std::bad_alloc();
+            }
         }
+        catch (...) {
+            throw;
+        }
+
         data_[top_++] = x;
 
         ASSERT_VALID();
     }
 
-    template<typename Tp, std::size_t stack_size>
-    void stack_t<Tp, stack_size>::pop() {
+    template<typename Tp>
+    void stack_t<Tp>::pop() {
         ASSERT_VALID();
 
         if (!top_) {
@@ -201,22 +276,57 @@ namespace stk {
         ASSERT_VALID();
     }
 
-    template<typename Tp, std::size_t stack_size>
-    bool stack_t<Tp, stack_size>::is_valid() const {
-        if (top_ <= stack_size) {
-            for (size_type i = top_; i < stack_size; ++i) {
-                if (data_[i] != FREE_POISON_) {
-                    return false;
-                }
-            }
-            return true;
+    template<typename Tp>
+    bool stack_t<Tp>::reserve(const size_type n) {
+        if (n <= capacity_) {
+            return false;
         }
 
-        return false;
+        size_type new_capacity = std::max(capacity_, 1u);
+        while (new_capacity < n) {
+            new_capacity *= MEMORY_MULTIPLIER_;
+        }
+
+        value_type *tmp_buffer = nullptr;
+        try {
+            tmp_buffer = new value_type[new_capacity];
+        }
+        catch (std::bad_alloc) {
+            return false;
+        }
+
+        std::copy(data_, data_ + top_, tmp_buffer);
+        std::fill(tmp_buffer + top_, tmp_buffer + new_capacity, FREE_POISON_);
+
+        delete[] data_;
+        data_ = tmp_buffer;
+        tmp_buffer = nullptr;
+        capacity_ = new_capacity;
+
+        ASSERT_VALID();
+
+        return true;
     }
 
-    template<typename Tp, std::size_t stack_size>
-    void stack_t<Tp, stack_size>::dump(const char* function_name) const {
+    template<typename Tp>
+    bool stack_t<Tp>::is_valid() const {
+        if (data_ != nullptr) {
+            if (top_ <= capacity_) {
+                for (size_type i = top_; i < capacity_; ++i) {
+                    if (data_[i] != FREE_POISON_) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+
+        return !(top_ || capacity_);
+    }
+
+    template<typename Tp>
+    void stack_t<Tp>::dump(const char* function_name) const {
         std::ofstream fout("__stack_dump.txt", std::ios_base::app);
 
         if (fout.is_open()) {
@@ -227,10 +337,10 @@ namespace stk {
                     "time: "         << ctime(&time_info) <<
                     "function: "     << function_name     << "\n"
                     "satus: "        << (is_valid() ? "ok\n{\n" : "FAIL\n{\n");
-            fout << "\tstack_size: " << stack_size        << "\n"
+            fout << "\tcapacity: "   << capacity_         << "\n"
                     "\ttop: "        << top_              << "\n\n";
 
-            for (size_type i = 0; i < stack_size; ++i) {
+            for (size_type i = 0; i < capacity_; ++i) {
                 fout << (i < top_ ? "\t* [" : "\t  [") << i << "]"
                      << " = " << data_[i]
                      << (i >= top_ && data_[i] != FREE_POISON_ ? "  //ERROR!\n" : "\n");
@@ -244,4 +354,4 @@ namespace stk {
 
 }
 
-#endif // STACK_H
+#endif // STK_STACK_H

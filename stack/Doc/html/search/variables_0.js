@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['data_5f',['data_',['../classstk_1_1stack__t.html#a740287c74a7e188220ef94e4dbd5a3ea',1,'stk::stack_t']]]
+  ['capacity_5f',['capacity_',['../classstk_1_1stack__t.html#ace387ef68b512dd54537f2c8ebe3d0d5',1,'stk::stack_t']]]
 ];
