@@ -1,0 +1,49 @@
+\hypertarget{stack_8h}{}\section{D\+:/\+Git\+Hub/\+Techno\+Atom/stack/stack.h File Reference}
+\label{stack_8h}\index{D\+:/\+Git\+Hub/\+Techno\+Atom/stack/stack.\+h@{D\+:/\+Git\+Hub/\+Techno\+Atom/stack/stack.\+h}}
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classstk_1_1stack__t}{stk\+::stack\+\_\+t$<$ Tp $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacestk}{stk}
+\begin{DoxyCompactList}\small\item\em There the stack class describes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{stack_8h_aa12f1f9d705e38ef4f7fd09b21d32675}\label{stack_8h_aa12f1f9d705e38ef4f7fd09b21d32675}} 
+\#define {\bfseries S\+T\+K\+\_\+\+S\+T\+A\+C\+K\+\_\+H}
+\item 
+\#define \hyperlink{stack_8h_a4ad7af85cae2910ffcf6bfbcb8278886}{A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID}()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{stack_8h_a4ad7af85cae2910ffcf6bfbcb8278886}\label{stack_8h_a4ad7af85cae2910ffcf6bfbcb8278886}} 
+\index{stack.\+h@{stack.\+h}!A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID@{A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID}}
+\index{A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID@{A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID}!stack.\+h@{stack.\+h}}
+\subsubsection{\texorpdfstring{A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID}{ASSERT\_VALID}}
+{\footnotesize\ttfamily \#define A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{\(\backslash\)
+    if (!is\_valid()) \{\(\backslash\)
+        dump(\_\_PRETTY\_FUNCTION\_\_);\(\backslash\)
+        assert(!\textcolor{stringliteral}{"Stack is good"});\(\backslash\)
+        throw std::exception();\(\backslash\)
+    \}\(\backslash\)
+\}
+\end{DoxyCode}
+Macro to test object integrity 
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & Stack is not valid \\
+\hline
+\end{DoxyExceptions}
