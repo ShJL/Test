@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classatom_1_1error.html" title="Abstract class which is template for all exceptions. " alt="" coords="5,107,91,133"/>
+<area shape="rect" id="node2" href="$classatom_1_1bad_alloc.html" title="Exception about problems with allocate of the memory. " alt="" coords="159,5,269,32"/>
+<area shape="rect" id="node3" href="$classatom_1_1invalid_argument.html" title="Exception about problems with arguments in functions. " alt="" coords="139,56,289,83"/>
+<area shape="rect" id="node4" href="$classatom_1_1invalid_object.html" title="Exception about problems with object different classes. " alt="" coords="148,107,280,133"/>
+<area shape="rect" id="node5" href="$classatom_1_1other_error.html" title="Undefine here exceptions. " alt="" coords="156,157,272,184"/>
+<area shape="rect" id="node6" href="$classatom_1_1out_of_range.html" title="Exception about problems connected with borders. " alt="" coords="151,208,277,235"/>
+</map>

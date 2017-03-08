@@ -1,2 +1,0 @@
-# TechnoAtom
-Project
