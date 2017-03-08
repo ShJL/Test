@@ -1,0 +1,60 @@
+\hypertarget{debug__tools_8h}{}\section{D\+:/\+Git\+Hub/\+Techno\+Atom/task 2/src/debug\+\_\+tools.h File Reference}
+\label{debug__tools_8h}\index{D\+:/\+Git\+Hub/\+Techno\+Atom/task 2/src/debug\+\_\+tools.\+h@{D\+:/\+Git\+Hub/\+Techno\+Atom/task 2/src/debug\+\_\+tools.\+h}}
+{\ttfamily \#include \char`\"{}exceptions.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_p_o_i_s_o_n}{P\+O\+I\+S\+O\+N$<$ Tp $>$}
+\begin{DoxyCompactList}\small\item\em Poison constant for any elements. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_p_o_i_s_o_n_3_01short_01_4}{P\+O\+I\+S\+O\+N$<$ short $>$}
+\item 
+struct \hyperlink{struct_p_o_i_s_o_n_3_01unsigned_01short_01_4}{P\+O\+I\+S\+O\+N$<$ unsigned short $>$}
+\item 
+struct \hyperlink{struct_p_o_i_s_o_n_3_01int_01_4}{P\+O\+I\+S\+O\+N$<$ int $>$}
+\item 
+struct \hyperlink{struct_p_o_i_s_o_n_3_01unsigned_01int_01_4}{P\+O\+I\+S\+O\+N$<$ unsigned int $>$}
+\item 
+struct \hyperlink{struct_p_o_i_s_o_n_3_01float_01_4}{P\+O\+I\+S\+O\+N$<$ float $>$}
+\item 
+struct \hyperlink{struct_p_o_i_s_o_n_3_01double_01_4}{P\+O\+I\+S\+O\+N$<$ double $>$}
+\item 
+struct \hyperlink{struct_p_o_i_s_o_n_3_01char_01_4}{P\+O\+I\+S\+O\+N$<$ char $>$}
+\item 
+struct \hyperlink{struct_p_o_i_s_o_n_3_01unsigned_01char_01_4}{P\+O\+I\+S\+O\+N$<$ unsigned char $>$}
+\item 
+struct \hyperlink{struct_p_o_i_s_o_n_3_01long_01long_01_4}{P\+O\+I\+S\+O\+N$<$ long long $>$}
+\item 
+struct \hyperlink{struct_p_o_i_s_o_n_3_01unsigned_01long_01long_01_4}{P\+O\+I\+S\+O\+N$<$ unsigned long long $>$}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID}(p\+\_\+elem)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}\label{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}} 
+\index{debug\+\_\+tools.\+h@{debug\+\_\+tools.\+h}!A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID@{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID}}
+\index{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID@{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID}!debug\+\_\+tools.\+h@{debug\+\_\+tools.\+h}}
+\subsubsection{\texorpdfstring{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID}{ATOM\_ASSERT\_VALID}}
+{\footnotesize\ttfamily \#define A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+ID(\begin{DoxyParamCaption}\item[{}]{p\+\_\+elem }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{\(\backslash\)
+    if (!((p\_elem)->is\_valid())) \{\(\backslash\)
+        (p\_elem)->dump(FUNC\_AND\_LINE);\(\backslash\)
+        assert(!\textcolor{stringliteral}{"Object is good"});\(\backslash\)
+        throw \hyperlink{classatom_1_1invalid_object}{atom::invalidObject}(FUNC\_AND\_LINE, \_\_FILE\_\_);\(\backslash\)
+    \}\(\backslash\)
+\}
+\end{DoxyCode}
+Takes a pointer to an object that have functions\+: is\+\_\+valid() and dump()
+
+\hyperlink{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} us if do not exist macro A\+T\+O\+M\+\_\+\+N\+D\+E\+B\+UG, otherwise \{ \} 
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{classatom_1_1invalid_object}{atom\+::invalid\+Object}} & Object is not valid \\
+\hline
+\end{DoxyExceptions}

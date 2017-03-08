@@ -1,0 +1,607 @@
+\hypertarget{classatom_1_1vector__t}{}\section{atom\+:\+:vector\+\_\+t$<$ Tp $>$ Class Template Reference}
+\label{classatom_1_1vector__t}\index{atom\+::vector\+\_\+t$<$ Tp $>$@{atom\+::vector\+\_\+t$<$ Tp $>$}}
+
+
+{\ttfamily \#include $<$vector.\+h$>$}
+
+
+
+Collaboration diagram for atom\+:\+:vector\+\_\+t$<$ Tp $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{classatom_1_1vector__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}\label{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}} 
+using \hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type} = Tp
+\begin{DoxyCompactList}\small\item\em Element type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a14fe7ee127e522f41f345462311c924e}\label{classatom_1_1vector__t_a14fe7ee127e522f41f345462311c924e}} 
+using \hyperlink{classatom_1_1vector__t_a14fe7ee127e522f41f345462311c924e}{const\+\_\+value\+\_\+type} = const Tp
+\begin{DoxyCompactList}\small\item\em Const element type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}\label{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}} 
+using \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} = std\+::size\+\_\+t
+\begin{DoxyCompactList}\small\item\em Size type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a72425f7c04f5d5fffd5244596c9a33c0}\label{classatom_1_1vector__t_a72425f7c04f5d5fffd5244596c9a33c0}} 
+\hyperlink{classatom_1_1vector__t_a72425f7c04f5d5fffd5244596c9a33c0}{vector\+\_\+t} () noexcept
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1vector__t_a6c045495ebfcd53b4d91d9c76ceb5fdf}{vector\+\_\+t} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n, const \hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type} \&value=\hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type}())
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1vector__t_a2c546a0310265fa1eabcc21ac4349d33}{vector\+\_\+t} (const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&that)
+\begin{DoxyCompactList}\small\item\em The copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1vector__t_a7fb03f8164c86f7e9df312fe4da33fd0}{vector\+\_\+t} (\hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&\&that) noexcept
+\begin{DoxyCompactList}\small\item\em The move constructor. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1vector__t_afa9985af7e737691bfd4fc2c876c3378}{$\sim$vector\+\_\+t} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \& \hyperlink{classatom_1_1vector__t_af0b2037e8034d5bb97ac320f4513df2d}{operator=} (const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&that)
+\begin{DoxyCompactList}\small\item\em The assignment operator. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1vector__t_a14fe7ee127e522f41f345462311c924e}{const\+\_\+value\+\_\+type} \& \hyperlink{classatom_1_1vector__t_a1c0df3e4399ea92d4213986c2e5359bf}{front} () const
+\begin{DoxyCompactList}\small\item\em First element. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1vector__t_a14fe7ee127e522f41f345462311c924e}{const\+\_\+value\+\_\+type} \& \hyperlink{classatom_1_1vector__t_a081ce30b6b112520ce41879cf383a409}{back} () const
+\begin{DoxyCompactList}\small\item\em Last element. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type} \& \hyperlink{classatom_1_1vector__t_aa8d100ece074c429aafe4cd110165643}{operator\mbox{[}$\,$\mbox{]}} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\begin{DoxyCompactList}\small\item\em Operator addressing. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1vector__t_a14fe7ee127e522f41f345462311c924e}{const\+\_\+value\+\_\+type} \& \hyperlink{classatom_1_1vector__t_ab3cbcfdd1fdadcd927eb1ef629d2f814}{operator\mbox{[}$\,$\mbox{]}} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n) const
+\begin{DoxyCompactList}\small\item\em Operator addressing. \end{DoxyCompactList}\item 
+void \hyperlink{classatom_1_1vector__t_a92c657f98ab473119a6b04dad7cd2091}{push\+\_\+back} (\hyperlink{classatom_1_1vector__t_a14fe7ee127e522f41f345462311c924e}{const\+\_\+value\+\_\+type} x)
+\begin{DoxyCompactList}\small\item\em Push new item in back of the vector. \end{DoxyCompactList}\item 
+bool \hyperlink{classatom_1_1vector__t_ab414b36ee5235f86352dbdb73ff6c0e0}{erase} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} position)
+\begin{DoxyCompactList}\small\item\em Remove nth element. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a6a6e6950a03b50dd330c2b54f8a6104a}\label{classatom_1_1vector__t_a6a6e6950a03b50dd330c2b54f8a6104a}} 
+void \hyperlink{classatom_1_1vector__t_a6a6e6950a03b50dd330c2b54f8a6104a}{clear} () noexcept
+\begin{DoxyCompactList}\small\item\em Clear the vector. \end{DoxyCompactList}\item 
+void \hyperlink{classatom_1_1vector__t_a76f6cab17dbffe1a54657199b6a5cb55}{reserve} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\begin{DoxyCompactList}\small\item\em Reserve new memory. \end{DoxyCompactList}\item 
+void \hyperlink{classatom_1_1vector__t_a5720e4e26657a55697d4335663cb6f10}{resize} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n, const \hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type} \&value=\hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type}())
+\begin{DoxyCompactList}\small\item\em Create new block of the memory. \end{DoxyCompactList}\item 
+bool \hyperlink{classatom_1_1vector__t_a0204758afeafe695689a8c926fa79897}{empty} () const noexcept
+\begin{DoxyCompactList}\small\item\em Checks the vector on the void. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} \hyperlink{classatom_1_1vector__t_ada6d9f1b78bbb338980c4bd714cd3096}{capacity} () const noexcept
+\begin{DoxyCompactList}\small\item\em Capacity. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} \hyperlink{classatom_1_1vector__t_ad81b85532451986356b3b244aa1b77e7}{size} () const noexcept
+\begin{DoxyCompactList}\small\item\em Size. \end{DoxyCompactList}\item 
+void \hyperlink{classatom_1_1vector__t_a37462493cd88e3c610cc0004b9bb0b57}{swap} (\hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&rhs) noexcept
+\begin{DoxyCompactList}\small\item\em Swap two vector. \end{DoxyCompactList}\item 
+bool \hyperlink{classatom_1_1vector__t_a16a4c8f9d44c9878affca542eba877d3}{is\+\_\+valid} () const noexcept
+\begin{DoxyCompactList}\small\item\em Silent verifier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a08ad6fbf9240e4d85ee8c428afa98f35}\label{classatom_1_1vector__t_a08ad6fbf9240e4d85ee8c428afa98f35}} 
+{\footnotesize template$<$$>$ }\\{\bfseries vector\+\_\+t} (const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&that)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a8a2ca85d8037a099eddc04c3b8be9a8a}\label{classatom_1_1vector__t_a8a2ca85d8037a099eddc04c3b8be9a8a}} 
+{\footnotesize template$<$$>$ }\\{\bfseries vector\+\_\+t} (const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&that)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a8eaf8a26ed2e914992248ff3f5aff058}\label{classatom_1_1vector__t_a8eaf8a26ed2e914992248ff3f5aff058}} 
+{\footnotesize template$<$$>$ }\\{\bfseries vector\+\_\+t} (const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&that)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_af4351b624d6c6fd6d4d3e0d56cc0c070}\label{classatom_1_1vector__t_af4351b624d6c6fd6d4d3e0d56cc0c070}} 
+{\footnotesize template$<$$>$ }\\{\bfseries vector\+\_\+t} (const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&that)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_abf74131a0e0b83a5afcf6641b0619851}\label{classatom_1_1vector__t_abf74131a0e0b83a5afcf6641b0619851}} 
+{\footnotesize template$<$$>$ }\\{\bfseries vector\+\_\+t} (const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&that)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a649807aa460fde380cc32afd3d8b1ad1}\label{classatom_1_1vector__t_a649807aa460fde380cc32afd3d8b1ad1}} 
+{\footnotesize template$<$$>$ }\\{\bfseries vector\+\_\+t} (const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&that)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a3926bd28d9077d0d5d7da62755f36de0}\label{classatom_1_1vector__t_a3926bd28d9077d0d5d7da62755f36de0}} 
+{\footnotesize template$<$$>$ }\\{\bfseries vector\+\_\+t} (const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&that)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_ab22fdb73b3f78a0066e8b8f4caccb318}\label{classatom_1_1vector__t_ab22fdb73b3f78a0066e8b8f4caccb318}} 
+{\footnotesize template$<$$>$ }\\{\bfseries vector\+\_\+t} (const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&that)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a53279ae55339ea6d6c90e40a42ef9401}\label{classatom_1_1vector__t_a53279ae55339ea6d6c90e40a42ef9401}} 
+{\footnotesize template$<$$>$ }\\{\bfseries vector\+\_\+t} (const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&that)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a02bd68eadc121f10fad608f2e8ac7e76}\label{classatom_1_1vector__t_a02bd68eadc121f10fad608f2e8ac7e76}} 
+{\footnotesize template$<$$>$ }\\{\bfseries vector\+\_\+t} (const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t} \&that)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classatom_1_1vector__t_aa4355cec63c373a8af58c0c432a590c0}{alloc} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\begin{DoxyCompactList}\small\item\em Create new block of the memory. \end{DoxyCompactList}\item 
+void \hyperlink{classatom_1_1vector__t_afdf1ffed030302fa380605478984b854}{shrink\+\_\+alloc} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\begin{DoxyCompactList}\small\item\em Create new block of the memory. \end{DoxyCompactList}\item 
+void \hyperlink{classatom_1_1vector__t_a5dbc4a2fbead76e7bfb2105693bb9680}{dump} (const char $\ast$function\+\_\+name, int line\+\_\+number) const
+\begin{DoxyCompactList}\small\item\em Dumper. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a66aec7f86f32ef3d16e1d90cc7260abf}\label{classatom_1_1vector__t_a66aec7f86f32ef3d16e1d90cc7260abf}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries shrink\+\_\+alloc} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a706b6a8755595be8690a761b0f6d4a16}\label{classatom_1_1vector__t_a706b6a8755595be8690a761b0f6d4a16}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries shrink\+\_\+alloc} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a1b0195d3556e1be900dd41476ea5063a}\label{classatom_1_1vector__t_a1b0195d3556e1be900dd41476ea5063a}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries shrink\+\_\+alloc} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_ac29cc3e5e6dab15b28303d0b6f836109}\label{classatom_1_1vector__t_ac29cc3e5e6dab15b28303d0b6f836109}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries shrink\+\_\+alloc} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_ae3f17bc6ad330016ed945707a4866bb2}\label{classatom_1_1vector__t_ae3f17bc6ad330016ed945707a4866bb2}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries shrink\+\_\+alloc} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_ae37f9ea52afc955c6bdb3c742ed26dd3}\label{classatom_1_1vector__t_ae37f9ea52afc955c6bdb3c742ed26dd3}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries shrink\+\_\+alloc} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_ab651b2dbe9c96560fe7084bcf148a2b4}\label{classatom_1_1vector__t_ab651b2dbe9c96560fe7084bcf148a2b4}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries shrink\+\_\+alloc} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a18286271aef51437e36f1bbbd733bc6f}\label{classatom_1_1vector__t_a18286271aef51437e36f1bbbd733bc6f}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries shrink\+\_\+alloc} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a0e24793c16844771bc4a82769c93bd22}\label{classatom_1_1vector__t_a0e24793c16844771bc4a82769c93bd22}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries shrink\+\_\+alloc} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a00789bdfa7019e76028d2f117d29abb7}\label{classatom_1_1vector__t_a00789bdfa7019e76028d2f117d29abb7}} 
+{\footnotesize template$<$$>$ }\\void {\bfseries shrink\+\_\+alloc} (const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} n)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a9ad3283ba0a42acb2e7170e9bc4d45b4}\label{classatom_1_1vector__t_a9ad3283ba0a42acb2e7170e9bc4d45b4}} 
+const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} \hyperlink{classatom_1_1vector__t_a9ad3283ba0a42acb2e7170e9bc4d45b4}{M\+E\+M\+O\+R\+Y\+\_\+\+M\+U\+L\+T\+I\+P\+L\+I\+E\+R\+\_\+} = 2
+\begin{DoxyCompactList}\small\item\em Constant memory increase. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a65beae11fccd858f2654f58d2bd1cc0a}\label{classatom_1_1vector__t_a65beae11fccd858f2654f58d2bd1cc0a}} 
+bool \hyperlink{classatom_1_1vector__t_a65beae11fccd858f2654f58d2bd1cc0a}{status\+\_\+}
+\begin{DoxyCompactList}\small\item\em Status of the vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a29dff51a861116c432c2f1ee90801a76}\label{classatom_1_1vector__t_a29dff51a861116c432c2f1ee90801a76}} 
+\hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} \hyperlink{classatom_1_1vector__t_a29dff51a861116c432c2f1ee90801a76}{size\+\_\+}
+\begin{DoxyCompactList}\small\item\em Size of the vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a6a9ead361729a5b20e4461591865ce4c}\label{classatom_1_1vector__t_a6a9ead361729a5b20e4461591865ce4c}} 
+\hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} \hyperlink{classatom_1_1vector__t_a6a9ead361729a5b20e4461591865ce4c}{capacity\+\_\+}
+\begin{DoxyCompactList}\small\item\em Capacity of the vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1vector__t_a064e615ddc1f70082d573d45f8e5df00}\label{classatom_1_1vector__t_a064e615ddc1f70082d573d45f8e5df00}} 
+\hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type} $\ast$ \hyperlink{classatom_1_1vector__t_a064e615ddc1f70082d573d45f8e5df00}{data\+\_\+}
+\begin{DoxyCompactList}\small\item\em A pointer to an vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Tp$>$\newline
+class atom\+::vector\+\_\+t$<$ Tp $>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Tp} & The type of the value in the vector \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classatom_1_1vector__t_a6c045495ebfcd53b4d91d9c76ceb5fdf}\label{classatom_1_1vector__t_a6c045495ebfcd53b4d91d9c76ceb5fdf}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!vector\+\_\+t@{vector\+\_\+t}}
+\index{vector\+\_\+t@{vector\+\_\+t}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{vector\+\_\+t()}{vector\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::\hyperlink{classatom_1_1vector__t}{vector\+\_\+t} (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type}}]{n,  }\item[{const \hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type} \&}]{value = {\ttfamily \hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+Constructor which resize memory to n elements and initialize them 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of elements for which memory is allocated \\
+\hline
+{\em value} & (default \hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type()}) initializer for n elements \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em The} & same exceptions as the function \hyperlink{classatom_1_1vector__t_a5720e4e26657a55697d4335663cb6f10}{resize()} \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1vector__t_a2c546a0310265fa1eabcc21ac4349d33}\label{classatom_1_1vector__t_a2c546a0310265fa1eabcc21ac4349d33}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!vector\+\_\+t@{vector\+\_\+t}}
+\index{vector\+\_\+t@{vector\+\_\+t}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{vector\+\_\+t()}{vector\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::\hyperlink{classatom_1_1vector__t}{vector\+\_\+t} (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t}$<$ Tp $>$ \&}]{that }\end{DoxyParamCaption})}
+
+
+
+The copy constructor. 
+
+Deep copy
+
+Specialized types\+: short, int, long long, char (also with unsigned), float, double
+
+These types use memcpy() and memset() 
+\begin{DoxyParams}{Parameters}
+{\em that} & The copy source \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em The} & same exceptions as the function \hyperlink{classatom_1_1vector__t_afdf1ffed030302fa380605478984b854}{shrink\+\_\+alloc()} \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1vector__t_a7fb03f8164c86f7e9df312fe4da33fd0}\label{classatom_1_1vector__t_a7fb03f8164c86f7e9df312fe4da33fd0}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!vector\+\_\+t@{vector\+\_\+t}}
+\index{vector\+\_\+t@{vector\+\_\+t}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{vector\+\_\+t()}{vector\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::\hyperlink{classatom_1_1vector__t}{vector\+\_\+t} (\begin{DoxyParamCaption}\item[{\hyperlink{classatom_1_1vector__t}{vector\+\_\+t}$<$ Tp $>$ \&\&}]{that }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+The move constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em that} & The move source \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classatom_1_1vector__t_afa9985af7e737691bfd4fc2c876c3378}\label{classatom_1_1vector__t_afa9985af7e737691bfd4fc2c876c3378}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!````~vector\+\_\+t@{$\sim$vector\+\_\+t}}
+\index{````~vector\+\_\+t@{$\sim$vector\+\_\+t}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{$\sim$vector\+\_\+t()}{~vector\_t()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::$\sim$\hyperlink{classatom_1_1vector__t}{vector\+\_\+t} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructor. 
+
+Macro A\+T\+O\+M\+\_\+\+N\+D\+E\+B\+UG for debug mode 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classatom_1_1vector__t_aa4355cec63c373a8af58c0c432a590c0}\label{classatom_1_1vector__t_aa4355cec63c373a8af58c0c432a590c0}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!alloc@{alloc}}
+\index{alloc@{alloc}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{alloc()}{alloc()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+void \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::alloc (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Create new block of the memory. 
+
+Can increase the capacity 
+\begin{DoxyParams}{Parameters}
+{\em n} & new capacity \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{classatom_1_1invalid_object}{atom\+::invalid\+Object}} & From \hyperlink{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when vector is not valid \\
+\hline
+{\em The} & same exceptions as the function \hyperlink{classatom_1_1vector__t_afdf1ffed030302fa380605478984b854}{shrink\+\_\+alloc()} \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1vector__t_a081ce30b6b112520ce41879cf383a409}\label{classatom_1_1vector__t_a081ce30b6b112520ce41879cf383a409}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!back@{back}}
+\index{back@{back}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{back()}{back()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\hyperlink{classatom_1_1vector__t_a14fe7ee127e522f41f345462311c924e}{const\+\_\+value\+\_\+type}\& \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Last element. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em The} & same exceptions as the operator\mbox{[}\mbox{]} \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1vector__t_ada6d9f1b78bbb338980c4bd714cd3096}\label{classatom_1_1vector__t_ada6d9f1b78bbb338980c4bd714cd3096}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!capacity@{capacity}}
+\index{capacity@{capacity}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Capacity. 
+
+\begin{DoxyReturn}{Returns}
+capacity of the vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1vector__t_a5dbc4a2fbead76e7bfb2105693bb9680}\label{classatom_1_1vector__t_a5dbc4a2fbead76e7bfb2105693bb9680}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!dump@{dump}}
+\index{dump@{dump}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+void \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::dump (\begin{DoxyParamCaption}\item[{const char $\ast$}]{function\+\_\+name,  }\item[{int}]{line\+\_\+number }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dumper. 
+
+Create file \char`\"{}\+\_\+\+\_\+vector\+\_\+dump.\+txt\char`\"{} where is information about vector\textquotesingle{}s status
+
+Macro A\+T\+O\+M\+\_\+\+N\+W\+R\+I\+TE prohibit function \hyperlink{classatom_1_1vector__t_a5dbc4a2fbead76e7bfb2105693bb9680}{dump()} print elements (for example when value\+\_\+type has not operator$<$$<$) 
+\begin{DoxyParams}{Parameters}
+{\em function\+\_\+name} & Name of function which call this method \\
+\hline
+{\em line\+\_\+number} & Number of line which call this method \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classatom_1_1vector__t_a0204758afeafe695689a8c926fa79897}\label{classatom_1_1vector__t_a0204758afeafe695689a8c926fa79897}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!empty@{empty}}
+\index{empty@{empty}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+bool \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Checks the vector on the void. 
+
+\begin{DoxyReturn}{Returns}
+True if vector is empty, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1vector__t_ab414b36ee5235f86352dbdb73ff6c0e0}\label{classatom_1_1vector__t_ab414b36ee5235f86352dbdb73ff6c0e0}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!erase@{erase}}
+\index{erase@{erase}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{erase()}{erase()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+bool \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::erase (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type}}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove nth element. 
+
+Do not change the capacity
+
+Macro A\+T\+O\+M\+\_\+\+N\+D\+E\+B\+UG for debug mode 
+\begin{DoxyParams}{Parameters}
+{\em position} & number of the item in the vector \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{classatom_1_1invalid_object}{atom\+::invalid\+Object}} & From \hyperlink{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when vector is not valid \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+True if element was delete, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1vector__t_a1c0df3e4399ea92d4213986c2e5359bf}\label{classatom_1_1vector__t_a1c0df3e4399ea92d4213986c2e5359bf}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!front@{front}}
+\index{front@{front}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{front()}{front()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\hyperlink{classatom_1_1vector__t_a14fe7ee127e522f41f345462311c924e}{const\+\_\+value\+\_\+type}\& \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+First element. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em The} & same exceptions as the operator\mbox{[}\mbox{]} \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1vector__t_a16a4c8f9d44c9878affca542eba877d3}\label{classatom_1_1vector__t_a16a4c8f9d44c9878affca542eba877d3}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!is\+\_\+valid@{is\+\_\+valid}}
+\index{is\+\_\+valid@{is\+\_\+valid}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{is\+\_\+valid()}{is\_valid()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+bool \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::is\+\_\+valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Silent verifier. 
+
+\begin{DoxyReturn}{Returns}
+True if vector is valid else return false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1vector__t_af0b2037e8034d5bb97ac320f4513df2d}\label{classatom_1_1vector__t_af0b2037e8034d5bb97ac320f4513df2d}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!operator=@{operator=}}
+\index{operator=@{operator=}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t}\& \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1vector__t}{vector\+\_\+t}$<$ Tp $>$ \&}]{that }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The assignment operator. 
+
+Use copy and move idiom 
+\begin{DoxyParams}{Parameters}
+{\em that} & The source of the assignment \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em The} & same exceptions as the \hyperlink{classatom_1_1vector__t_a2c546a0310265fa1eabcc21ac4349d33}{vector\+\_\+t(const vector\+\_\+t\&)} \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+Constant reference to the calling object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1vector__t_aa8d100ece074c429aafe4cd110165643}\label{classatom_1_1vector__t_aa8d100ece074c429aafe4cd110165643}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type}\& \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operator addressing. 
+
+Checks n for occurrence in the interval of bounds of the vector 
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of the element \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em The} & same exceptions as the operator\mbox{[}\mbox{]} returns const reference \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+Reference on the nth item of the vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1vector__t_ab3cbcfdd1fdadcd927eb1ef629d2f814}\label{classatom_1_1vector__t_ab3cbcfdd1fdadcd927eb1ef629d2f814}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\hyperlink{classatom_1_1vector__t_a14fe7ee127e522f41f345462311c924e}{const\+\_\+value\+\_\+type}\& \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type}}]{n }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operator addressing. 
+
+Checks n for occurrence in the interval of bounds of the vector 
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of the element \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{classatom_1_1out_of_range}{atom\+::out\+Of\+Range}} & When n is bigger or equal than size of the vector \\
+\hline
+{\em \hyperlink{classatom_1_1invalid_object}{atom\+::invalid\+Object}} & From \hyperlink{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when vector is not valid \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+Const reference on the nth item of the vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1vector__t_a92c657f98ab473119a6b04dad7cd2091}\label{classatom_1_1vector__t_a92c657f98ab473119a6b04dad7cd2091}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{push\+\_\+back()}{push\_back()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+void \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{\hyperlink{classatom_1_1vector__t_a14fe7ee127e522f41f345462311c924e}{const\+\_\+value\+\_\+type}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Push new item in back of the vector. 
+
+Can increase the capacity 
+\begin{DoxyParams}{Parameters}
+{\em x} & new element which will be added in vector \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{classatom_1_1invalid_object}{atom\+::invalid\+Object}} & From \hyperlink{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when vector is not valid \\
+\hline
+{\em The} & same exceptions as the function \hyperlink{classatom_1_1vector__t_aa4355cec63c373a8af58c0c432a590c0}{alloc()} \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1vector__t_a76f6cab17dbffe1a54657199b6a5cb55}\label{classatom_1_1vector__t_a76f6cab17dbffe1a54657199b6a5cb55}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!reserve@{reserve}}
+\index{reserve@{reserve}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{reserve()}{reserve()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+void \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::reserve (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reserve new memory. 
+
+Do not shrink the capacity 
+\begin{DoxyParams}{Parameters}
+{\em n} & new capacity \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{classatom_1_1invalid_object}{atom\+::invalid\+Object}} & From \hyperlink{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when vector is not valid \\
+\hline
+{\em The} & same exceptions as the function \hyperlink{classatom_1_1vector__t_aa4355cec63c373a8af58c0c432a590c0}{alloc()} \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1vector__t_a5720e4e26657a55697d4335663cb6f10}\label{classatom_1_1vector__t_a5720e4e26657a55697d4335663cb6f10}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!resize@{resize}}
+\index{resize@{resize}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+void \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::resize (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type}}]{n,  }\item[{const \hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type} \&}]{value = {\ttfamily \hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type}()} }\end{DoxyParamCaption})}
+
+
+
+Create new block of the memory. 
+
+Can change size and capacity
+
+Specialized types\+: short, int, long long, char (also with unsigned), float, double
+
+These types use memcpy() and memset() 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of elements for which memory is allocated \\
+\hline
+{\em value} & (default \hyperlink{classatom_1_1vector__t_a558283a4fed53856d445ceb61ac96d94}{value\+\_\+type()}) initializer for n elements \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{classatom_1_1invalid_object}{atom\+::invalid\+Object}} & From \hyperlink{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when vector is not valid \\
+\hline
+{\em The} & same exceptions as the function \hyperlink{classatom_1_1vector__t_afdf1ffed030302fa380605478984b854}{shrink\+\_\+alloc()} \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1vector__t_afdf1ffed030302fa380605478984b854}\label{classatom_1_1vector__t_afdf1ffed030302fa380605478984b854}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!shrink\+\_\+alloc@{shrink\+\_\+alloc}}
+\index{shrink\+\_\+alloc@{shrink\+\_\+alloc}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{shrink\+\_\+alloc()}{shrink\_alloc()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+void \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::shrink\+\_\+alloc (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Create new block of the memory. 
+
+Can change capacity and size, when undefine A\+T\+O\+M\+\_\+\+N\+D\+E\+B\+UG fill all elements which are behind position size\+\_\+
+
+Specialized types\+: short, int, long long, char (also with unsigned), float, double
+
+These types use memcpy() and memset() 
+\begin{DoxyParams}{Parameters}
+{\em n} & New capacity \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{classatom_1_1bad_alloc}{atom\+::bad\+Alloc}} & When not enough of the memory \\
+\hline
+{\em \hyperlink{classatom_1_1invalid_object}{atom\+::invalid\+Object}} & From \hyperlink{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when vector is not valid \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1vector__t_ad81b85532451986356b3b244aa1b77e7}\label{classatom_1_1vector__t_ad81b85532451986356b3b244aa1b77e7}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!size@{size}}
+\index{size@{size}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\hyperlink{classatom_1_1vector__t_a1790d79321f4fa8d2580474dd0f56033}{size\+\_\+type} \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Size. 
+
+\begin{DoxyReturn}{Returns}
+size of the vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1vector__t_a37462493cd88e3c610cc0004b9bb0b57}\label{classatom_1_1vector__t_a37462493cd88e3c610cc0004b9bb0b57}} 
+\index{atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}!swap@{swap}}
+\index{swap@{swap}!atom\+::vector\+\_\+t@{atom\+::vector\+\_\+t}}
+\subsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+void \hyperlink{classatom_1_1vector__t}{atom\+::vector\+\_\+t}$<$ Tp $>$\+::swap (\begin{DoxyParamCaption}\item[{\hyperlink{classatom_1_1vector__t}{vector\+\_\+t}$<$ Tp $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Swap two vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & other vector to which you want to exchange \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Git\+Hub/\+Techno\+Atom/task 2/src/vector/\hyperlink{vector_8h}{vector.\+h}\item 
+D\+:/\+Git\+Hub/\+Techno\+Atom/task 2/src/vector/implement/vector.\+hpp\end{DoxyCompactItemize}
