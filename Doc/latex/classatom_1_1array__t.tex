@@ -1,0 +1,432 @@
+\hypertarget{classatom_1_1array__t}{}\section{atom\+:\+:array\+\_\+t$<$ Tp, max\+\_\+size\+\_\+ $>$ Class Template Reference}
+\label{classatom_1_1array__t}\index{atom\+::array\+\_\+t$<$ Tp, max\+\_\+size\+\_\+ $>$@{atom\+::array\+\_\+t$<$ Tp, max\+\_\+size\+\_\+ $>$}}
+
+
+{\ttfamily \#include $<$array.\+h$>$}
+
+
+
+Collaboration diagram for atom\+:\+:array\+\_\+t$<$ Tp, max\+\_\+size\+\_\+ $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{classatom_1_1array__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classatom_1_1array__t_aeb485cd6190dc11ddb8e7f48c09451c4}\label{classatom_1_1array__t_aeb485cd6190dc11ddb8e7f48c09451c4}} 
+using \hyperlink{classatom_1_1array__t_aeb485cd6190dc11ddb8e7f48c09451c4}{value\+\_\+type} = Tp
+\begin{DoxyCompactList}\small\item\em Element type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}\label{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}} 
+using \hyperlink{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}{const\+\_\+value\+\_\+type} = const Tp
+\begin{DoxyCompactList}\small\item\em Const element type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}\label{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}} 
+using \hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type} = std\+::size\+\_\+t
+\begin{DoxyCompactList}\small\item\em Size type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classatom_1_1array__t_ac909dffe60e64d871a3c23e74480cdf1}{array\+\_\+t} () noexcept
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1array__t_a9f3f72a3c77e55f6f18bfcfb065b78b3}{array\+\_\+t} (const \hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type} n, const \hyperlink{classatom_1_1array__t_aeb485cd6190dc11ddb8e7f48c09451c4}{value\+\_\+type} \&value=\hyperlink{classatom_1_1array__t_aeb485cd6190dc11ddb8e7f48c09451c4}{value\+\_\+type}())
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1array__t_a90c35f817089cdefbfc68a493dac97cf}\label{classatom_1_1array__t_a90c35f817089cdefbfc68a493dac97cf}} 
+\hyperlink{classatom_1_1array__t_a90c35f817089cdefbfc68a493dac97cf}{array\+\_\+t} (const \hyperlink{classatom_1_1array__t}{array\+\_\+t} \&that)=default
+\begin{DoxyCompactList}\small\item\em Default copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1array__t_afc5abfb4d2764ef27b0fb237e4dd63a3}{$\sim$array\+\_\+t} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+const \hyperlink{classatom_1_1array__t}{array\+\_\+t} \& \hyperlink{classatom_1_1array__t_aee988e07623e2c643765a286eb52eea6}{operator=} (const \hyperlink{classatom_1_1array__t}{array\+\_\+t} \&that)
+\begin{DoxyCompactList}\small\item\em The assignment operator. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}{const\+\_\+value\+\_\+type} \& \hyperlink{classatom_1_1array__t_aa6995427dae0b4a3ce63d8fd47ed3121}{operator\mbox{[}$\,$\mbox{]}} (const \hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type} n) const
+\begin{DoxyCompactList}\small\item\em Operator addressing. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1array__t_aeb485cd6190dc11ddb8e7f48c09451c4}{value\+\_\+type} \& \hyperlink{classatom_1_1array__t_ad96738ee0018dce88aaeb9941c24dee0}{operator\mbox{[}$\,$\mbox{]}} (const \hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type} n)
+\begin{DoxyCompactList}\small\item\em Operator addressing. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}{const\+\_\+value\+\_\+type} \& \hyperlink{classatom_1_1array__t_a3ef0f195a147615aa53a3e2a47c61c49}{front} () const
+\begin{DoxyCompactList}\small\item\em First element. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}{const\+\_\+value\+\_\+type} \& \hyperlink{classatom_1_1array__t_a2337c7353a06e7df164112021138f7fd}{back} () const
+\begin{DoxyCompactList}\small\item\em Last element. \end{DoxyCompactList}\item 
+void \hyperlink{classatom_1_1array__t_ad53d9e0a290e125927d70c202b04aea4}{push\+\_\+back} (\hyperlink{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}{const\+\_\+value\+\_\+type} x)
+\begin{DoxyCompactList}\small\item\em Push new item in back of the array. \end{DoxyCompactList}\item 
+bool \hyperlink{classatom_1_1array__t_a2d07b56eadfc3c1aed378d918366f859}{erase} (const \hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type} position)
+\begin{DoxyCompactList}\small\item\em Remove nth element. \end{DoxyCompactList}\item 
+bool \hyperlink{classatom_1_1array__t_aac24cc1d7dab76ac0bf394aaa8699e27}{empty} () const noexcept
+\begin{DoxyCompactList}\small\item\em Checks the array on the void. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type} \hyperlink{classatom_1_1array__t_ab399c935e3103360bcd3aacd79d3bd06}{size} () const noexcept
+\begin{DoxyCompactList}\small\item\em Size. \end{DoxyCompactList}\item 
+\hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type} \hyperlink{classatom_1_1array__t_a83235683c8ca9bceb07d050ae1efe767}{capacity} () const noexcept
+\begin{DoxyCompactList}\small\item\em Capacity. \end{DoxyCompactList}\item 
+void \hyperlink{classatom_1_1array__t_a3062d6888dd690495402b2dadbafe727}{fill} (\hyperlink{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}{const\+\_\+value\+\_\+type} \&value)
+\begin{DoxyCompactList}\small\item\em Fill the array. \end{DoxyCompactList}\item 
+bool \hyperlink{classatom_1_1array__t_a44737f61d6cac6e2a65fbee06b702755}{use\+\_\+array} (const \hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type} n) noexcept
+\begin{DoxyCompactList}\small\item\em Set new size of the array within max\+\_\+size. \end{DoxyCompactList}\item 
+void \hyperlink{classatom_1_1array__t_a139e38b7e830dc58885a768fe135dee5}{swap} (\hyperlink{classatom_1_1array__t}{array\+\_\+t} \&rhs)
+\begin{DoxyCompactList}\small\item\em Swap two array. \end{DoxyCompactList}\item 
+bool \hyperlink{classatom_1_1array__t_a6a069628b26cc592466475ec97ff362a}{is\+\_\+valid} () const noexcept
+\begin{DoxyCompactList}\small\item\em Silent verifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classatom_1_1array__t_a3e133e59958e8638b0f6d7a74b9890d6}{dump} (const char $\ast$function\+\_\+name, int line\+\_\+number) const
+\begin{DoxyCompactList}\small\item\em Dumper. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classatom_1_1array__t_a621a080eeb6d2d7501221fed64f3a1d1}\label{classatom_1_1array__t_a621a080eeb6d2d7501221fed64f3a1d1}} 
+bool \hyperlink{classatom_1_1array__t_a621a080eeb6d2d7501221fed64f3a1d1}{status\+\_\+}
+\begin{DoxyCompactList}\small\item\em Status of the array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1array__t_a56208ec116be4941be22dde2f921203e}\label{classatom_1_1array__t_a56208ec116be4941be22dde2f921203e}} 
+\hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type} \hyperlink{classatom_1_1array__t_a56208ec116be4941be22dde2f921203e}{size\+\_\+}
+\begin{DoxyCompactList}\small\item\em Size of the array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classatom_1_1array__t_afb74074f5cc1bb0dc10c6c556ecb12d4}\label{classatom_1_1array__t_afb74074f5cc1bb0dc10c6c556ecb12d4}} 
+\hyperlink{classatom_1_1array__t_aeb485cd6190dc11ddb8e7f48c09451c4}{value\+\_\+type} \hyperlink{classatom_1_1array__t_afb74074f5cc1bb0dc10c6c556ecb12d4}{data\+\_\+} \mbox{[}max\+\_\+size\+\_\+\mbox{]}
+\begin{DoxyCompactList}\small\item\em Buffer of the array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$\newline
+class atom\+::array\+\_\+t$<$ Tp, max\+\_\+size\+\_\+ $>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Tp} & The type of the value in the array \\
+\hline
+{\em max\+\_\+size\+\_\+} & Max capacity of the array (default is 256) \\
+\hline
+\end{DoxyTemplParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classatom_1_1array__t_ac909dffe60e64d871a3c23e74480cdf1}\label{classatom_1_1array__t_ac909dffe60e64d871a3c23e74480cdf1}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!array\+\_\+t@{array\+\_\+t}}
+\index{array\+\_\+t@{array\+\_\+t}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{array\+\_\+t()}{array\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+\hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::\hyperlink{classatom_1_1array__t}{array\+\_\+t} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Default constructor. 
+
+When switched debug fill all elements of the \hyperlink{struct_p_o_i_s_o_n}{P\+O\+I\+S\+ON} \mbox{\Hypertarget{classatom_1_1array__t_a9f3f72a3c77e55f6f18bfcfb065b78b3}\label{classatom_1_1array__t_a9f3f72a3c77e55f6f18bfcfb065b78b3}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!array\+\_\+t@{array\+\_\+t}}
+\index{array\+\_\+t@{array\+\_\+t}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{array\+\_\+t()}{array\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+\hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::\hyperlink{classatom_1_1array__t}{array\+\_\+t} (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type}}]{n,  }\item[{const \hyperlink{classatom_1_1array__t_aeb485cd6190dc11ddb8e7f48c09451c4}{value\+\_\+type} \&}]{value = {\ttfamily \hyperlink{classatom_1_1array__t_aeb485cd6190dc11ddb8e7f48c09451c4}{value\+\_\+type}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+Constructor which set size of the array and initialize them
+
+Macro A\+T\+O\+M\+\_\+\+N\+D\+E\+B\+UG for debug mode 
+\begin{DoxyParams}{Parameters}
+{\em n} & The desired size of the array \\
+\hline
+{\em value} & (default \hyperlink{classatom_1_1array__t_aeb485cd6190dc11ddb8e7f48c09451c4}{value\+\_\+type()}) initializer for n elements \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{classatom_1_1bad_alloc}{atom\+::bad\+Alloc}} & If n less than max size \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1array__t_afc5abfb4d2764ef27b0fb237e4dd63a3}\label{classatom_1_1array__t_afc5abfb4d2764ef27b0fb237e4dd63a3}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!````~array\+\_\+t@{$\sim$array\+\_\+t}}
+\index{````~array\+\_\+t@{$\sim$array\+\_\+t}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{$\sim$array\+\_\+t()}{~array\_t()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+\hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::$\sim$\hyperlink{classatom_1_1array__t}{array\+\_\+t} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default destructor. 
+
+Macro A\+T\+O\+M\+\_\+\+N\+D\+E\+B\+UG for debug mode 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classatom_1_1array__t_a2337c7353a06e7df164112021138f7fd}\label{classatom_1_1array__t_a2337c7353a06e7df164112021138f7fd}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!back@{back}}
+\index{back@{back}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{back()}{back()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+\hyperlink{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}{const\+\_\+value\+\_\+type}\& \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Last element. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em The} & same exceptions as the operator\mbox{[}\mbox{]} \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1array__t_a83235683c8ca9bceb07d050ae1efe767}\label{classatom_1_1array__t_a83235683c8ca9bceb07d050ae1efe767}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!capacity@{capacity}}
+\index{capacity@{capacity}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+\hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type} \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Capacity. 
+
+\begin{DoxyReturn}{Returns}
+capacity of the array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1array__t_a3e133e59958e8638b0f6d7a74b9890d6}\label{classatom_1_1array__t_a3e133e59958e8638b0f6d7a74b9890d6}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!dump@{dump}}
+\index{dump@{dump}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily template$<$typename Tp , std\+::size\+\_\+t max\+\_\+size\+\_\+$>$ \\
+void \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::dump (\begin{DoxyParamCaption}\item[{const char $\ast$}]{function\+\_\+name,  }\item[{int}]{line\+\_\+number }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dumper. 
+
+Create file \char`\"{}\+\_\+\+\_\+array\+\_\+dump.\+txt\char`\"{} where is information about array\textquotesingle{}s status
+
+Macro A\+T\+O\+M\+\_\+\+N\+W\+R\+I\+TE prohibit function \hyperlink{classatom_1_1array__t_a3e133e59958e8638b0f6d7a74b9890d6}{dump()} print elements (for example when value\+\_\+type has not operator$<$$<$) 
+\begin{DoxyParams}{Parameters}
+{\em function\+\_\+name} & Name of function which call this method \\
+\hline
+{\em line\+\_\+number} & Number of line which call this method \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classatom_1_1array__t_aac24cc1d7dab76ac0bf394aaa8699e27}\label{classatom_1_1array__t_aac24cc1d7dab76ac0bf394aaa8699e27}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!empty@{empty}}
+\index{empty@{empty}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+bool \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Checks the array on the void. 
+
+\begin{DoxyReturn}{Returns}
+True if array is empty, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1array__t_a2d07b56eadfc3c1aed378d918366f859}\label{classatom_1_1array__t_a2d07b56eadfc3c1aed378d918366f859}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!erase@{erase}}
+\index{erase@{erase}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{erase()}{erase()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+bool \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::erase (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type}}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove nth element. 
+
+Macro A\+T\+O\+M\+\_\+\+N\+D\+E\+B\+UG for debug mode 
+\begin{DoxyParams}{Parameters}
+{\em position} & number of the item in the array \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{classatom_1_1invalid_object}{atom\+::invalid\+Object}} & From \hyperlink{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when array is not valid \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+True if element was delete, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1array__t_a3062d6888dd690495402b2dadbafe727}\label{classatom_1_1array__t_a3062d6888dd690495402b2dadbafe727}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!fill@{fill}}
+\index{fill@{fill}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{fill()}{fill()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+void \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::fill (\begin{DoxyParamCaption}\item[{\hyperlink{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}{const\+\_\+value\+\_\+type} \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Fill the array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to be assigned to all elements of the array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classatom_1_1array__t_a3ef0f195a147615aa53a3e2a47c61c49}\label{classatom_1_1array__t_a3ef0f195a147615aa53a3e2a47c61c49}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!front@{front}}
+\index{front@{front}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{front()}{front()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+\hyperlink{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}{const\+\_\+value\+\_\+type}\& \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+First element. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em The} & same exceptions as the operator\mbox{[}\mbox{]} \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1array__t_a6a069628b26cc592466475ec97ff362a}\label{classatom_1_1array__t_a6a069628b26cc592466475ec97ff362a}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!is\+\_\+valid@{is\+\_\+valid}}
+\index{is\+\_\+valid@{is\+\_\+valid}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{is\+\_\+valid()}{is\_valid()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+bool \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::is\+\_\+valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Silent verifier. 
+
+\begin{DoxyReturn}{Returns}
+True if array is valid else return false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1array__t_aee988e07623e2c643765a286eb52eea6}\label{classatom_1_1array__t_aee988e07623e2c643765a286eb52eea6}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!operator=@{operator=}}
+\index{operator=@{operator=}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+const \hyperlink{classatom_1_1array__t}{array\+\_\+t}\& \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1array__t}{array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$ \&}]{that }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The assignment operator. 
+
+Use copy and move idiom 
+\begin{DoxyParams}{Parameters}
+{\em that} & The source of the assignment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Constant reference to the calling object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1array__t_aa6995427dae0b4a3ce63d8fd47ed3121}\label{classatom_1_1array__t_aa6995427dae0b4a3ce63d8fd47ed3121}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+\hyperlink{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}{const\+\_\+value\+\_\+type}\& \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type}}]{n }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operator addressing. 
+
+Checks n for occurrence in the interval of bounds of the array 
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of the element \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{classatom_1_1out_of_range}{atom\+::out\+Of\+Range}} & When n is bigger or equal than size of the array \\
+\hline
+{\em \hyperlink{classatom_1_1invalid_object}{atom\+::invalid\+Object}} & From \hyperlink{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when array is not valid \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+Const reference on the nth item of the array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1array__t_ad96738ee0018dce88aaeb9941c24dee0}\label{classatom_1_1array__t_ad96738ee0018dce88aaeb9941c24dee0}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+\hyperlink{classatom_1_1array__t_aeb485cd6190dc11ddb8e7f48c09451c4}{value\+\_\+type}\& \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operator addressing. 
+
+Checks n for occurrence in the interval of bounds of the array 
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of the element \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em The} & same exceptions as the operator\mbox{[}\mbox{]} returns const reference \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+Reference on the nth item of the array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1array__t_ad53d9e0a290e125927d70c202b04aea4}\label{classatom_1_1array__t_ad53d9e0a290e125927d70c202b04aea4}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{push\+\_\+back()}{push\_back()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+void \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{\hyperlink{classatom_1_1array__t_a9c33ee3fb4e5b4d57c7801a8f69ada14}{const\+\_\+value\+\_\+type}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Push new item in back of the array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & new element which will be added in array \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \hyperlink{classatom_1_1invalid_object}{atom\+::invalid\+Object}} & From \hyperlink{debug__tools_8h_a273b49426c51bc6a7eb989ee0acbdc6b}{A\+T\+O\+M\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+V\+A\+L\+I\+D()} when array is not valid \\
+\hline
+{\em \hyperlink{classatom_1_1bad_alloc}{atom\+::bad\+Alloc}} & When currently size equalent max\+\_\+size of the array \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classatom_1_1array__t_ab399c935e3103360bcd3aacd79d3bd06}\label{classatom_1_1array__t_ab399c935e3103360bcd3aacd79d3bd06}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!size@{size}}
+\index{size@{size}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+\hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type} \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Size. 
+
+\begin{DoxyReturn}{Returns}
+size of the array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classatom_1_1array__t_a139e38b7e830dc58885a768fe135dee5}\label{classatom_1_1array__t_a139e38b7e830dc58885a768fe135dee5}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!swap@{swap}}
+\index{swap@{swap}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+void \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::swap (\begin{DoxyParamCaption}\item[{\hyperlink{classatom_1_1array__t}{array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Swap two array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & other array to which you want to exchange \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classatom_1_1array__t_a44737f61d6cac6e2a65fbee06b702755}\label{classatom_1_1array__t_a44737f61d6cac6e2a65fbee06b702755}} 
+\index{atom\+::array\+\_\+t@{atom\+::array\+\_\+t}!use\+\_\+array@{use\+\_\+array}}
+\index{use\+\_\+array@{use\+\_\+array}!atom\+::array\+\_\+t@{atom\+::array\+\_\+t}}
+\subsubsection{\texorpdfstring{use\+\_\+array()}{use\_array()}}
+{\footnotesize\ttfamily template$<$typename Tp, const std\+::size\+\_\+t max\+\_\+size\+\_\+ = 256$>$ \\
+bool \hyperlink{classatom_1_1array__t}{atom\+::array\+\_\+t}$<$ Tp, max\+\_\+size\+\_\+ $>$\+::use\+\_\+array (\begin{DoxyParamCaption}\item[{const \hyperlink{classatom_1_1array__t_a8534f23c7f0082698cbd708e1f2e26ff}{size\+\_\+type}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Set new size of the array within max\+\_\+size. 
+
+Macro A\+T\+O\+M\+\_\+\+N\+D\+E\+B\+UG for debug mode 
+\begin{DoxyParams}{Parameters}
+{\em n} & The desired size of the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if n less than max\+\_\+size, otherwise false 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Git\+Hub/\+Techno\+Atom/src/array/\hyperlink{array_8h}{array.\+h}\item 
+D\+:/\+Git\+Hub/\+Techno\+Atom/src/array/implement/array.\+hpp\end{DoxyCompactItemize}
