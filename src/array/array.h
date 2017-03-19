@@ -68,7 +68,7 @@ namespace atom {
         //! @throw atom::badAlloc If n less than max size
         //-----------------------------------------------------------------------------
         array_t(const size_type n,
-                const const_reference value) :
+                const_reference value) :
             size_        (0),
             status_valid_(1) {
 
@@ -94,7 +94,7 @@ namespace atom {
         //! @throw atom::badAlloc If n greater than max size
         //-----------------------------------------------------------------------------
         array_t(const size_type n,
-                const const_value_type&& value = value_type()) :
+                const_value_type&& value = value_type()) :
             size_        (0),
             status_valid_(1) {
 

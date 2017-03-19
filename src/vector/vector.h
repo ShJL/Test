@@ -59,11 +59,38 @@ namespace atom {
         //! @brief Constructor
         //! @details Constructor which resize memory to n elements and initialize them
         //! @param n The number of elements for which memory is allocated
-        //! @param value (default value_type()) initializer for n elements
+        //! @param value initializer for n elements
         //! @throws The same exceptions as the function resize()
         //-----------------------------------------------------------------------------
         vector_t(const size_type n,
-                 const_reference value = value_type()) :
+                 const_reference value) :
+            size_        (0),
+            capacity_    (0),
+            data_        (nullptr),
+            status_valid_(1) {
+
+#ifndef ATOM_NDEBUG
+            try {
+#endif
+                resize(n, value);
+#ifndef ATOM_NDEBUG
+            }
+            catch (...) {
+                status_valid_ = 0;
+                throw;
+            }
+#endif
+        }
+		
+		//-----------------------------------------------------------------------------
+        //! @brief Constructor
+        //! @details Constructor which resize memory to n elements and initialize them
+        //! @param n The number of elements for which memory is allocated
+        //! @param value rvalue reference (default value_type()) initializer for n elements
+        //! @throws The same exceptions as the function resize()
+        //-----------------------------------------------------------------------------
+        vector_t(const size_type n,
+                 const_value_type&& value = value_type()) :
             size_        (0),
             capacity_    (0),
             data_        (nullptr),
@@ -349,7 +376,7 @@ namespace atom {
         //! @throws The same exceptions as the function shrink_alloc()
         //-----------------------------------------------------------------------------
         void resize(const size_type n,
-                    const const_reference value);
+                    const_reference value);
 
         //-----------------------------------------------------------------------------
         //! @brief Create new block of the memory
@@ -362,7 +389,7 @@ namespace atom {
         //! @throws The same exceptions as the function shrink_alloc()
         //-----------------------------------------------------------------------------
         void resize(const size_type n,
-                    const const_value_type&& value = value_type());
+                    const_value_type&& value = value_type());
 
         //-----------------------------------------------------------------------------
         //! @brief Checks the vector on the void
