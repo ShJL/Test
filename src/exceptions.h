@@ -12,7 +12,7 @@
 //! @date   04.03.2017
 //-----------------------------------------------------------------------------
 #ifndef ATOM_EXCEPTIONS_H
-#define ATOM_EXCEPTIONS_H
+#define ATOM_EXCEPTIONS_H 1
 
 #include <string>
 

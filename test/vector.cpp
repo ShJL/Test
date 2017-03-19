@@ -1,7 +1,10 @@
 //#define ATOM_NDEBUG
-#include <gtest/gtest.h>
 #include "vector/vector.h"
 #include "exceptions.h"
+#include <initializer_list>
+#include <gtest/gtest.h>
+#include <algorithm>
+#include <vector>
 
 using namespace atom;
 
@@ -35,6 +38,54 @@ TEST(VectorConstructorTest, CheckConstructor) {
     }
 }
 
+TEST(VectorConstructorTest, CheckConstructorInitializerList) {
+    const size_t arr_size = 5;
+    const int arr[arr_size] = {5, 77, -15, 0, 0};
+
+    vector_t<int> test_obj1 = {5, 77, -15, 0, 0};
+
+    ASSERT_EQ(test_obj1.capacity(), arr_size);
+    ASSERT_EQ(test_obj1.size(), arr_size);
+
+    for (size_t i = 0; i < arr_size; ++i) {
+        ASSERT_EQ(test_obj1[i], arr[i]);
+    }
+
+    vector_t<int> test_obj2 = {};
+
+    ASSERT_EQ(test_obj2.capacity(), 0u);
+    ASSERT_EQ(test_obj2.size(), 0u);
+}
+
+TEST(VectorConstructorTest, CheckMoveConstructor) {
+    vector_t<int> test_obj1;
+    const size_t test_obj1_cap = test_obj1.capacity();
+    const size_t test_obj1_size = test_obj1.size();
+
+    vector_t<int> test_obj2(std::move(test_obj1));
+
+    ASSERT_EQ(test_obj2.capacity(), test_obj1_cap);
+    ASSERT_EQ(test_obj2.size(), test_obj1_size);
+
+    const size_t size_test_obj3 = 15;
+    vector_t<float> test_obj3(size_test_obj3);
+    for (size_t i = 0; i < size_test_obj3 - 2; ++i) {
+        test_obj3[i] = -i;
+    }
+
+    const size_t test_obj3_cap = test_obj3.capacity();
+    const size_t test_obj3_size = test_obj3.size();
+
+    vector_t<float> test_obj4(std::move(test_obj3));
+
+    ASSERT_EQ(test_obj4.capacity(), test_obj3_cap);
+    ASSERT_EQ(test_obj4.size(), test_obj3_size);
+
+    for (size_t i = 0; i < size_test_obj3 - 2; ++i) {
+        ASSERT_EQ(test_obj4[i], -i);
+    }
+}
+
 TEST(VectorConstructorTest, CheckCopyConstructor) {
     vector_t<int> test_obj1;
     vector_t<int> test_obj2(test_obj1);
@@ -54,7 +105,31 @@ TEST(VectorConstructorTest, CheckCopyConstructor) {
     ASSERT_EQ(test_obj4.size(), test_obj3.size());
 
     for (size_t i = 0; i < size_test_obj3; ++i) {
-        ASSERT_TRUE(test_obj4[i] == test_obj3[i]);
+        ASSERT_EQ(test_obj4[i], test_obj3[i]);
+    }
+}
+
+TEST(VectorOperatorTest, CheckMoveAssignment) {
+    vector_t<unsigned> test_obj1;
+
+    const size_t size_test_obj2 = 19;
+    vector_t<unsigned> test_obj2(size_test_obj2);
+
+    const size_t cnt_insert_test_obj1 = 24;
+    for (size_t i = 0; i < cnt_insert_test_obj1; ++i) {
+        test_obj1.push_back(i);
+    }
+
+    const size_t test_obj1_cap = test_obj1.capacity();
+    const size_t test_obj1_size = test_obj1.size();
+
+    test_obj2 = std::move(test_obj1);
+
+    ASSERT_TRUE(test_obj2.capacity() <= test_obj1_cap);
+    ASSERT_EQ(test_obj2.size(), test_obj1_size);
+
+    for (size_t i = 0; i < cnt_insert_test_obj1; ++i) {
+        ASSERT_EQ(test_obj2[i], i);
     }
 }
 
@@ -307,6 +382,33 @@ TEST(VectorMethodTest, CheckClear) {
 
     ASSERT_EQ(test_obj2.size(), 0u);
     ASSERT_EQ(test_obj2.capacity(), 0u);
+}
+
+TEST(VectorMethodTest, CheckIterators) {
+    const size_t list_size = 4;
+
+    vector_t<int> test_obj1 = {5, -9, 0, 11};
+
+    int i = 0;
+    for (vector_t<int>::iterator it = test_obj1.begin(); it != test_obj1.end(); ++it) {
+        ASSERT_EQ(test_obj1[i++], *it);
+    }
+
+    vector_t<float> test_obj2;
+
+    int counter = 0;
+    for (vector_t<float>::iterator it = test_obj2.begin(); it != test_obj2.end(); ++it) {
+        ++counter;
+    }
+
+    ASSERT_EQ(counter, 0);
+
+    std::vector<int> tmp_vec(list_size);
+    std::copy(test_obj1.begin(), test_obj1.end(), tmp_vec.begin());
+
+    for (size_t j = 0; j < tmp_vec.size(); ++j) {
+        ASSERT_EQ(test_obj1[j], tmp_vec[j]);
+    }
 }
 
 

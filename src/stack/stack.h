@@ -55,7 +55,7 @@ namespace atom {
 
         //-----------------------------------------------------------------------------
         //! @brief The assignment operator
-        //! @details Use copy and move idiom
+        //! @details Use copy and swap idiom
         //! @param that The source of the assignment
         //! @throws The same exceptions as the stack_t(const stack_t&)
         //! @return Constant reference to the calling object
@@ -72,6 +72,18 @@ namespace atom {
         //-----------------------------------------------------------------------------
         stack_t(const stack_t&& that) noexcept {
             swap(that);
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief The move assignment operator
+        //! @param that The source of the assignment
+        //! @return Reference to the calling object
+        //-----------------------------------------------------------------------------
+        stack_t& operator=(stack_t&& that) {
+            if (this != &that) {
+                swap(that);
+            }
+            return *this;
         }
 
         //-----------------------------------------------------------------------------
@@ -123,7 +135,7 @@ namespace atom {
         //! @brief Currently size of the stack
         //! @return Count of the item in the stack
         //-----------------------------------------------------------------------------
-        size_type size() const noexcept {
+        size_type size() const {
             return data_.size();
         }
 
@@ -131,7 +143,7 @@ namespace atom {
         //! @brief Capacity
         //! @return Capacity of the stack
         //-----------------------------------------------------------------------------
-        size_type capacity() const noexcept {
+        size_type capacity() const {
             return data_.capacity();
         }
 
@@ -139,7 +151,7 @@ namespace atom {
         //! @brief Checks the emptiness of the stack
         //! @return True if stack is empty, otherwise false
         //-----------------------------------------------------------------------------
-        bool empty() const noexcept {
+        bool empty() const {
             return data_.empty();
         }
 

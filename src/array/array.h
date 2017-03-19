@@ -6,17 +6,19 @@
 //! Implements a array class
 //!
 //!
-//! @version 1.0
+//! @version 1.1
 //!
 //! @author ShJ
-//! @date   05.03.2017
+//! @date   18.03.2017
 //-----------------------------------------------------------------------------
 #ifndef ATOM_ARRAY_H
 #define ATOM_ARRAY_H 1
 
-#include <algorithm>
 #include "exceptions.h"
 #include "debug_tools.h"
+#include "va_iterator.h"
+#include <initializer_list>
+#include <algorithm>
 
 
 //-----------------------------------------------------------------------------
@@ -28,26 +30,32 @@ namespace atom {
     //-----------------------------------------------------------------------------
     //! @class array_t
     //! @tparam Tp The type of the value in the array
-    //! @tparam max_size_ Max capacity of the array (default is 256)
+    //! @tparam max_size_ Max capacity of the array
     //-----------------------------------------------------------------------------
-    template<typename Tp, const std::size_t max_size_ = 256>
+    template<typename Tp, const std::size_t max_size_>
     class array_t {
     public:
 
-        using value_type       = Tp;          //!< Element type
-        using const_value_type = const Tp;    //!< Const element type
-        using size_type        = std::size_t; //!< Size type
+        friend class va_iterator<Tp>;
+
+        using value_type       = Tp;                    //!< Element type
+        using const_value_type = const Tp;              //!< Constant element type
+        using reference        = Tp&;                   //!< Reference type
+        using const_reference  = const Tp&;             //!< Constant reference type
+        using iterator         = va_iterator<Tp>;       //!< Iterator type
+        using const_iterator   = va_iterator<const Tp>; //!< Iterator type
+        using size_type        = std::size_t;           //!< Size type
 
         //-----------------------------------------------------------------------------
         //! @brief Default constructor
         //! @details When switched debug fill all elements of the POISON
         //-----------------------------------------------------------------------------
         array_t() noexcept :
-            status_(true),
-            size_  (0) {
+            size_        (0),
+            status_valid_(1) {
 
 #ifndef ATOM_NDEBUG
-            std::fill(data_, data_ + max_size_, POISON<value_type>::value);
+            std::fill_n(data_, max_size_, POISON<value_type>::value);
 #endif
         }
 
@@ -56,16 +64,42 @@ namespace atom {
         //! @details Constructor which set size of the array and initialize them
         //! @details Macro ATOM_NDEBUG for debug mode
         //! @param n The desired size of the array
-        //! @param value (default value_type()) initializer for n elements
+        //! @param value initializer for n elements
         //! @throw atom::badAlloc If n less than max size
         //-----------------------------------------------------------------------------
         array_t(const size_type n,
-                const value_type& value = value_type()) :
-            status_  (true),
-            size_    (0) {
+                const const_reference value) :
+            size_        (0),
+            status_valid_(1) {
 
             if (n > max_size_) {
-                status_ = false;
+                status_valid_ = 0;
+                throw atom::badAlloc(FUNC_AND_LINE);
+            }
+
+            size_ = n;
+            std::fill_n(data_, size_, value);
+
+#ifndef ATOM_NDEBUG
+            std::fill(data_ + size_, data_ + max_size_, POISON<value_type>::value);
+#endif
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Constructor
+        //! @details Constructor which set size of the array and initialize them
+        //! @details Macro ATOM_NDEBUG for debug mode
+        //! @param n The desired size of the array
+        //! @param value rvalue reference (default value_type()) initializer for n elements
+        //! @throw atom::badAlloc If n greater than max size
+        //-----------------------------------------------------------------------------
+        array_t(const size_type n,
+                const const_value_type&& value = value_type()) :
+            size_        (0),
+            status_valid_(1) {
+
+            if (n > max_size_) {
+                status_valid_ = 0;
                 throw atom::badAlloc(FUNC_AND_LINE);
             }
 
@@ -83,13 +117,48 @@ namespace atom {
         array_t(const array_t& that) = default;
 
         //-----------------------------------------------------------------------------
+        //! @brief The move constructor
+        //! @param that The move source
+        //-----------------------------------------------------------------------------
+        array_t(array_t&& that) noexcept :
+            size_        (0),
+            status_valid_(1) {
+
+            swap(that);
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Constructor with std::initializer_list
+        //! @details Constructor which copy from std::initializer_list
+        //! @param init List of elements
+        //! @throw atom::badAlloc If n greater than max size
+        //-----------------------------------------------------------------------------
+        array_t(const std::initializer_list<value_type>& init) :
+            size_        (0),
+            status_valid_(1) {
+
+            if (init.size() > max_size_) {
+                status_valid_ = 0;
+                throw atom::badAlloc(FUNC_AND_LINE);
+            }
+
+            size_ = init.size();
+            std::copy(init.begin(), init.end(), data_);
+
+#ifndef ATOM_NDEBUG
+            std::fill(data_ + size_, data_ + max_size_, POISON<value_type>::value);
+#endif
+        }
+
+        //-----------------------------------------------------------------------------
         //! @brief Default destructor
         //! @details Macro ATOM_NDEBUG for debug mode
         //-----------------------------------------------------------------------------
         ~array_t() {
-            status_ = false;
+            status_valid_ = 0;
 
 #ifndef ATOM_NDEBUG
+            std::fill_n(data_, size_, POISON<value_type>::value);
             size_ = POISON<size_type>::value;
 #endif
         }
@@ -101,8 +170,20 @@ namespace atom {
         //! @return Constant reference to the calling object
         //-----------------------------------------------------------------------------
         const array_t& operator=(const array_t& that) {
-            array_t<value_type> tmp_array(that);
+            array_t<value_type, max_size_> tmp_array(that);
             swap(tmp_array);
+            return *this;
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief The move assignment operator
+        //! @param that The move source
+        //! @return Reference to the calling object
+        //-----------------------------------------------------------------------------
+        array_t& operator=(array_t&& that) {
+            if (this != &that) {
+                swap(that);
+            }
             return *this;
         }
 
@@ -114,7 +195,7 @@ namespace atom {
         //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when array is not valid
         //! @return Const reference on the nth item of the array
         //-----------------------------------------------------------------------------
-        const_value_type& operator[](const size_type n) const {
+        const_reference operator[](const size_type n) const {
             ATOM_ASSERT_VALID(this);
 
             if (n >= size_) {
@@ -131,15 +212,47 @@ namespace atom {
         //! @throws The same exceptions as the operator[] returns const reference
         //! @return Reference on the nth item of the array
         //-----------------------------------------------------------------------------
-        value_type& operator[](const size_type n) {
-            return const_cast<value_type&>(static_cast<const array_t*>(this)->operator [](n));
+        reference operator[](const size_type n) {
+            return const_cast<reference>(static_cast<const array_t*>(this)->operator [](n));
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Iterator
+        //! @return Iterator on the begin of the array
+        //-----------------------------------------------------------------------------
+        iterator begin() {
+            return iterator(data_);
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Iterator
+        //! @return Iterator on the end of the array
+        //-----------------------------------------------------------------------------
+        iterator end() {
+            return iterator(data_ + size_);
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Constant iterator
+        //! @return Iterator on the begin of the array
+        //-----------------------------------------------------------------------------
+        const_iterator cbegin() {
+            return const_iterator(data_);
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Constant iterator
+        //! @return Iterator on the end of the array
+        //-----------------------------------------------------------------------------
+        const_iterator cend() {
+            return const_iterator(data_ + size_);
         }
 
         //-----------------------------------------------------------------------------
         //! @brief First element
         //! @throws The same exceptions as the operator[]
         //-----------------------------------------------------------------------------
-        const_value_type& front() const {
+        const_reference front() const {
             return operator[](0);
         }
 
@@ -147,7 +260,7 @@ namespace atom {
         //! @brief Last element
         //! @throws The same exceptions as the operator[]
         //-----------------------------------------------------------------------------
-        const_value_type& back() const {
+        const_reference back() const {
             return operator[](size_ - 1);
         }
 
@@ -157,7 +270,25 @@ namespace atom {
         //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when array is not valid
         //! @throw atom::badAlloc When currently size equalent max_size of the array
         //-----------------------------------------------------------------------------
-        void push_back(const_value_type x) {
+        void push_back(const_reference x) {
+            ATOM_ASSERT_VALID(this);
+
+            if (size_ >= max_size_) {
+                throw atom::badAlloc(FUNC_AND_LINE);
+            }
+
+            data_[size_++] = x;
+
+            ATOM_ASSERT_VALID(this);
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Push new rvalue reference item in back of the array
+        //! @param x new element which will be added in array
+        //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when array is not valid
+        //! @throw atom::badAlloc When currently size equalent max_size of the array
+        //-----------------------------------------------------------------------------
+        void push_back(const_value_type&& x) {
             ATOM_ASSERT_VALID(this);
 
             if (size_ >= max_size_) {
@@ -199,24 +330,30 @@ namespace atom {
         //-----------------------------------------------------------------------------
         //! @brief Checks the array on the void
         //! @return True if array is empty, otherwise false
+        //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when array is not valid
         //-----------------------------------------------------------------------------
-        bool empty() const noexcept {
+        bool empty() const {
+            ATOM_ASSERT_VALID(this);
             return !size_;
         }
 
         //-----------------------------------------------------------------------------
         //! @brief Size
         //! @return size of the array
+        //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when array is not valid
         //-----------------------------------------------------------------------------
-        size_type size() const noexcept {
+        size_type size() const {
+            ATOM_ASSERT_VALID(this);
             return size_;
         }
 
         //-----------------------------------------------------------------------------
         //! @brief Capacity
         //! @return capacity of the array
+        //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when array is not valid
         //-----------------------------------------------------------------------------
-        size_type capacity() const noexcept {
+        size_type capacity() const {
+            ATOM_ASSERT_VALID(this);
             return max_size_;
         }
 
@@ -224,7 +361,7 @@ namespace atom {
         //! @brief Fill the array
         //! @param value The value to be assigned to all elements of the array
         //-----------------------------------------------------------------------------
-        void fill(const_value_type& value) {
+        void fill(const_reference value) {
             std::fill_n(data_, size_, value);
         }
 
@@ -254,7 +391,9 @@ namespace atom {
         void swap(array_t& rhs) {
             std::swap_ranges(data_, data_ + max_size_, rhs.data_);
             std::swap(size_, rhs.size_);
-            std::swap(status_, rhs.status_);
+            unsigned char tmp_status = rhs.status_valid_;
+            rhs.status_valid_ = status_valid_;
+            status_valid_ = tmp_status;
         }
 
         //-----------------------------------------------------------------------------
@@ -262,16 +401,16 @@ namespace atom {
         //! @return True if array is valid else return false
         //-----------------------------------------------------------------------------
         bool is_valid() const noexcept {
-            return status_ &&
-                    size_ <= max_size_;
+            return
+                    this && status_valid_ && size_ <= max_size_;
         }
 
     private:
 
-        bool status_; //!< Status of the array
-
         size_type  size_;            //!< Size of the array
         value_type data_[max_size_]; //!< Buffer of the array
+
+        unsigned char status_valid_: 1; //!< Status of the array
 
         //-----------------------------------------------------------------------------
         //! @brief Dumper
@@ -286,6 +425,7 @@ namespace atom {
     };
 }
 
+//! @brief Implementation methods of the class vector_t
 #include "implement/array.hpp"
 
 #endif // ATOM_ARRAY_H

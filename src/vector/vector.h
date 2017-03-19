@@ -6,16 +6,19 @@
 //! Implements a vector class
 //!
 //!
-//! @version 1.0
+//! @version 1.1
 //!
 //! @author ShJ
-//! @date   04.03.2017
+//! @date   18.03.2017
 //-----------------------------------------------------------------------------
 #ifndef ATOM_VECTOR_H
 #define ATOM_VECTOR_H 1
 
 #include "exceptions.h"
 #include "debug_tools.h"
+#include "va_iterator.h"
+#include <initializer_list>
+#include <type_traits>
 
 
 //-----------------------------------------------------------------------------
@@ -32,18 +35,24 @@ namespace atom {
     class vector_t {
     public:       
 
-        using value_type       = Tp;          //!< Element type
-        using const_value_type = const Tp;    //!< Const element type
-        using size_type        = std::size_t; //!< Size type
+        friend class va_iterator<Tp>;
+
+        using value_type       = Tp;                    //!< Element type
+        using const_value_type = const Tp;              //!< Constant element type
+        using reference        = Tp&;                   //!< Reference type
+        using const_reference  = const Tp&;             //!< Constant reference type
+        using iterator         = va_iterator<Tp>;       //!< Iterator type
+        using const_iterator   = va_iterator<const Tp>; //!< Const iterator type
+        using size_type        = std::size_t;           //!< Size type
 
         //-----------------------------------------------------------------------------
         //! @brief Default constructor
         //-----------------------------------------------------------------------------
         vector_t() noexcept :
-            status_   (true),
-            size_     (0),
-            capacity_ (0),
-            data_     (nullptr)  {
+            size_        (0),
+            capacity_    (0),
+            data_        (nullptr),
+            status_valid_(1) {
         }
 
         //-----------------------------------------------------------------------------
@@ -54,19 +63,50 @@ namespace atom {
         //! @throws The same exceptions as the function resize()
         //-----------------------------------------------------------------------------
         vector_t(const size_type n,
-                 const value_type& value = value_type()) :
-            status_  (true),
-            size_    (0),
-            capacity_(0),
-            data_    (nullptr) {
+                 const_reference value = value_type()) :
+            size_        (0),
+            capacity_    (0),
+            data_        (nullptr),
+            status_valid_(1) {
 
+#ifndef ATOM_NDEBUG
             try {
+#endif
                 resize(n, value);
+#ifndef ATOM_NDEBUG
             }
             catch (...) {
-                status_ = false;
+                status_valid_ = 0;
                 throw;
             }
+#endif
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Constructor at std::initializer_list
+        //! @details Constructor which copy from std::initializer_list
+        //! @param init List of elements
+        //! @throws The same exceptions as the function resize()
+        //-----------------------------------------------------------------------------
+        vector_t(const std::initializer_list<value_type>& init) :
+            size_        (0),
+            capacity_    (0),
+            data_        (nullptr),
+            status_valid_(1) {
+
+#ifndef ATOM_NDEBUG
+            try {
+#endif
+                resize(init.size());
+#ifndef ATOM_NDEBUG
+            }
+            catch (...) {
+                status_valid_ = 0;
+                throw;
+            }
+#endif
+
+            std::copy(init.begin(), init.end(), data_);
         }
 
         //-----------------------------------------------------------------------------
@@ -83,7 +123,12 @@ namespace atom {
         //! @brief The move constructor
         //! @param that The move source
         //-----------------------------------------------------------------------------
-        vector_t(vector_t&& that) noexcept {
+        vector_t(vector_t&& that) noexcept :
+            size_        (0),
+            capacity_    (0),
+            data_        (nullptr),
+            status_valid_(1)  {
+
             swap(that);
         }
 
@@ -94,13 +139,12 @@ namespace atom {
         ~vector_t() {
             delete[] data_;
             data_   = nullptr;
-            status_ = false;
+            status_valid_ = 0;
 
 #ifndef ATOM_NDEBUG
             size_     = POISON<size_type>::value;
             capacity_ = POISON<size_type>::value;
 #endif
-
         }
 
         //-----------------------------------------------------------------------------
@@ -117,10 +161,54 @@ namespace atom {
         }
 
         //-----------------------------------------------------------------------------
+        //! @brief The move assignment operator
+        //! @param that The move source
+        //! @return Reference to the calling object
+        //-----------------------------------------------------------------------------
+        vector_t& operator=(vector_t&& that) {
+            if (this != &that) {
+                swap(that);
+            }
+            return *this;
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Iterator
+        //! @return Iterator on the begin of the vector
+        //-----------------------------------------------------------------------------
+        iterator begin() {
+            return iterator(data_);
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Iterator
+        //! @return Iterator on the end of the vector
+        //-----------------------------------------------------------------------------
+        iterator end() {
+            return iterator(data_ + size_);
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Constant iterator
+        //! @return Iterator on the begin of the vector
+        //-----------------------------------------------------------------------------
+        const_iterator cbegin() {
+            return const_iterator(data_);
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Constant iterator
+        //! @return Iterator on the end of the vector
+        //-----------------------------------------------------------------------------
+        const_iterator cend() {
+            return const_iterator(data_ + size_);
+        }
+
+        //-----------------------------------------------------------------------------
         //! @brief First element
         //! @throws The same exceptions as the operator[]
         //-----------------------------------------------------------------------------
-        const_value_type& front() const {
+        const_reference front() const {
             return operator[](0);
         }
 
@@ -128,7 +216,7 @@ namespace atom {
         //! @brief Last element
         //! @throws The same exceptions as the operator[]
         //-----------------------------------------------------------------------------
-        const_value_type& back() const {
+        const_reference back() const {
             return operator[](size_ - 1);
         }
 
@@ -139,8 +227,8 @@ namespace atom {
         //! @throws The same exceptions as the operator[] returns const reference
         //! @return Reference on the nth item of the vector
         //-----------------------------------------------------------------------------
-        value_type& operator[](const size_type n) {
-            return const_cast<value_type&>(static_cast<const vector_t*>(this)->operator[](n));
+        reference operator[](const size_type n) {
+            return const_cast<reference>(static_cast<const vector_t*>(this)->operator[](n));
         }
 
         //-----------------------------------------------------------------------------
@@ -151,7 +239,7 @@ namespace atom {
         //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when vector is not valid
         //! @return Const reference on the nth item of the vector
         //-----------------------------------------------------------------------------
-        const_value_type& operator[](const size_type n) const {
+        const_reference operator[](const size_type n) const {
             ATOM_ASSERT_VALID(this);
 
             if (n >= size_) {
@@ -168,7 +256,24 @@ namespace atom {
         //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when vector is not valid
         //! @throws The same exceptions as the function alloc()
         //-----------------------------------------------------------------------------
-        void push_back(const_value_type x) {
+        void push_back(const_reference x) {
+            ATOM_ASSERT_VALID(this);
+
+            alloc(size_ + 1);
+
+            data_[size_++] = x;
+
+            ATOM_ASSERT_VALID(this);
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @brief Push new rvalue reference item in back of the vector
+        //! @details Can increase the capacity
+        //! @param x new element which will be added in vector
+        //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when vector is not valid
+        //! @throws The same exceptions as the function alloc()
+        //-----------------------------------------------------------------------------
+        void push_back(const_value_type&& x) {
             ATOM_ASSERT_VALID(this);
 
             alloc(size_ + 1);
@@ -239,34 +344,53 @@ namespace atom {
         //! @details Specialized types: short, int, long long, char (also with unsigned), float, double
         //! @details These types use memcpy() and memset()
         //! @param n The number of elements for which memory is allocated
-        //! @param value (default value_type()) initializer for n elements
+        //! @param value initializer for n elements
         //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when vector is not valid
         //! @throws The same exceptions as the function shrink_alloc()
         //-----------------------------------------------------------------------------
         void resize(const size_type n,
-                    const value_type& value = value_type());
+                    const const_reference value);
+
+        //-----------------------------------------------------------------------------
+        //! @brief Create new block of the memory
+        //! @details Can change size and capacity
+        //! @details Specialized types: short, int, long long, char (also with unsigned), float, double
+        //! @details These types use memcpy() and memset()
+        //! @param n The number of elements for which memory is allocated
+        //! @param value temporary (default value_type()) initializer for n elements
+        //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when vector is not valid
+        //! @throws The same exceptions as the function shrink_alloc()
+        //-----------------------------------------------------------------------------
+        void resize(const size_type n,
+                    const const_value_type&& value = value_type());
 
         //-----------------------------------------------------------------------------
         //! @brief Checks the vector on the void
+        //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when vector is not valid
         //! @return True if vector is empty, otherwise false
         //-----------------------------------------------------------------------------
-        bool empty() const noexcept {
+        bool empty() const {
+            ATOM_ASSERT_VALID(this);
             return !size_;
         }
 
         //-----------------------------------------------------------------------------
         //! @brief Capacity
+        //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when vector is not valid
         //! @return capacity of the vector
         //-----------------------------------------------------------------------------
-        size_type capacity() const noexcept {
+        size_type capacity() const {
+            ATOM_ASSERT_VALID(this);
             return capacity_;
         }
 
         //-----------------------------------------------------------------------------
         //! @brief Size
+        //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when vector is not valid
         //! @return size of the vector
         //-----------------------------------------------------------------------------
-        size_type size() const noexcept {
+        size_type size() const {
+            ATOM_ASSERT_VALID(this);
             return size_;
         }
 
@@ -278,7 +402,9 @@ namespace atom {
             std::swap(data_, rhs.data_);
             std::swap(size_, rhs.size_);
             std::swap(capacity_, rhs.capacity_);
-            std::swap(status_, rhs.status_);
+            unsigned char tmp_status = status_valid_;
+            status_valid_ = rhs.status_valid_;
+            rhs.status_valid_ = tmp_status;
         }
 
         //-----------------------------------------------------------------------------
@@ -286,7 +412,7 @@ namespace atom {
         //! @return True if vector is valid else return false
         //-----------------------------------------------------------------------------
         bool is_valid() const noexcept {
-            return status_ &&
+            return this && status_valid_ &&
                     (data_ != nullptr ?
                         size_ <= capacity_ : !capacity_ && !size_);
         }
@@ -295,11 +421,14 @@ namespace atom {
 
         const size_type MEMORY_MULTIPLIER_ = 2; //!< Constant memory increase
 
-        bool status_; //!< Status of the vector
-
         size_type  size_;     //!< Size of the vector
         size_type  capacity_; //!< Capacity of the vector
         value_type *data_;    //!< A pointer to an vector
+
+        unsigned char status_valid_: 1; //!< Status of the vector
+
+        //! Determinate of the type
+        const bool is_arithmetic_type_ = std::is_arithmetic<value_type>::value;
 
         //-----------------------------------------------------------------------------
         //! @brief Create new block of the memory

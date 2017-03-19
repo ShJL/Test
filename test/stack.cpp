@@ -152,8 +152,8 @@ TEST(StackVectorMethodTest, CheckPop) {
 
 
 TEST (StackArrayConstructorTest, CheckConstructor) {
-	stack_t<std::string, array_t<std::string> > test_obj1;
-	stack_t<int, array_t<int> >                 test_obj2;
+	stack_t<std::string, array_t<std::string, 256> > test_obj1;
+	stack_t<int, array_t<int, 256> >                 test_obj2;
 
 	const size_t default_capacity = 256;
 
@@ -164,14 +164,14 @@ TEST (StackArrayConstructorTest, CheckConstructor) {
 }
 
 TEST (StackArrayConstructorTest, CheckCopyConstructor) {
-	stack_t<float, array_t<float> > test_obj1;
+	stack_t<float, array_t<float, 256> > test_obj1;
 
 	const size_t count_insert = 40;
 	for (size_t i = 0; i < count_insert; ++i) {
 		test_obj1.push(i);
 	}
 
-	stack_t<float, array_t<float> > test_obj2(test_obj1);
+	stack_t<float, array_t<float, 256> > test_obj2(test_obj1);
 
 	ASSERT_EQ(test_obj2.size(), count_insert);
 
@@ -182,8 +182,8 @@ TEST (StackArrayConstructorTest, CheckCopyConstructor) {
 }
 
 TEST (StackArrayOperatorTest, CheckAssignment) {
-	stack_t<float, array_t<float> > test_obj1;
-	stack_t<float, array_t<float> > test_obj2;
+	stack_t<float, array_t<float, 256> > test_obj1;
+	stack_t<float, array_t<float, 256> > test_obj2;
 
 	const size_t count_insert = 40;
 	for (size_t i = 0; i < count_insert; ++i) {
@@ -196,9 +196,9 @@ TEST (StackArrayOperatorTest, CheckAssignment) {
 }
 
 TEST(StackArrayMethodTest, CheckEmpty) {
-	stack_t<int, array_t<int> >     test_obj1;
-	stack_t<int, array_t<int> >     test_obj2;
-	stack_t<float, array_t<float> > test_obj3;
+	stack_t<int, array_t<int, 256> >     test_obj1;
+	stack_t<int, array_t<int, 256> >     test_obj2;
+	stack_t<float, array_t<float, 256> > test_obj3;
 
 	ASSERT_TRUE(test_obj1.empty());
 	ASSERT_TRUE(test_obj2.empty());
@@ -218,8 +218,8 @@ TEST(StackArrayMethodTest, CheckEmpty) {
 }
 
 TEST(StackArrayMethodTest, CheckTop) {
-	stack_t<int, array_t<int> >   test_obj1;
-	stack_t<char, array_t<char> > test_obj2;
+	stack_t<int, array_t<int, 256> >   test_obj1;
+	stack_t<char, array_t<char, 256> > test_obj2;
 
 	ASSERT_ANY_THROW(test_obj1.top());
 	ASSERT_ANY_THROW(test_obj2.top());
@@ -235,8 +235,8 @@ TEST(StackArrayMethodTest, CheckTop) {
 }
 
 TEST(StackArrayMethodTest, CheckSize) {
-	stack_t<int, array_t<int> >   test_obj1;
-	stack_t<char, array_t<char> > test_obj2;
+	stack_t<int, array_t<int, 256> >   test_obj1;
+	stack_t<char, array_t<char, 256> > test_obj2;
 
 	ASSERT_EQ(test_obj1.size(), 0u);
 	ASSERT_EQ(test_obj2.size(), 0u);
@@ -252,9 +252,9 @@ TEST(StackArrayMethodTest, CheckSize) {
 }
 
 TEST(StackArrayMethodTest, CheckPush) {
-	stack_t<int, array_t<int> >           test_obj1;
-	stack_t<unsigned, array_t<unsigned> > test_obj2;
-	stack_t<char, array_t<char> >         test_obj3;
+	stack_t<int, array_t<int, 256> >           test_obj1;
+	stack_t<unsigned, array_t<unsigned, 256> > test_obj2;
+	stack_t<char, array_t<char, 256> >         test_obj3;
 
 	ASSERT_NO_THROW(test_obj2.push(7));
 
@@ -268,9 +268,9 @@ TEST(StackArrayMethodTest, CheckPush) {
 }
 
 TEST(StackArrayMethodTest, CheckPop) {
-	stack_t<int, array_t<int> >     test_obj1;
-	stack_t<float, array_t<float> > test_obj2;
-	stack_t<char, array_t<char> >   test_obj3;
+	stack_t<int, array_t<int, 256> >     test_obj1;
+	stack_t<float, array_t<float, 256> > test_obj2;
+	stack_t<char, array_t<char, 256> >   test_obj3;
 
 	ASSERT_NO_THROW(test_obj2.pop());
 	ASSERT_TRUE(test_obj2.empty());
@@ -297,3 +297,4 @@ int main(int argc, char* argv[]) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+

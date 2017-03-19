@@ -16,12 +16,13 @@ namespace atom {
         if (fout.is_open()) {
             fout << "-------------------\n"
                     "Class array_t:\n"
-                    "time: "         << __TIME__      << "\n"
-                    "function: "     << function_name << "\n"
-                    "line: "         << line_number   << "\n"
-                    "status: "       << (is_valid() ? "ok\n{\n" : "FAIL\n{\n");
-            fout << "\tsize: "       << size_         << "\n"
-                    "\tcapacity: "   << max_size_     << "\n\n";
+                    "time: "           << __TIME__      << "\n"
+                    "function: "       << function_name << "\n"
+                    "line: "           << line_number   << "\n"
+                    "status: "         << (is_valid() ? "ok\n{\n" : "FAIL\n{\n");
+            fout << "\tsize: "         << size_         << "\n"
+                    "\tcapacity: "     << max_size_     << "\n"
+                    "\tstatus_valid: " << (status_valid_ ? "ok\n\n" : "fail\n\n");
 
 #ifndef ATOM_NWRITE
             for (size_type i = 0; i < size_; ++i) {
@@ -29,7 +30,7 @@ namespace atom {
             }
             for (size_type i = size_; i < max_size_; ++i) {
                 fout << "\t  [" << i << "] =  " << data_[i]
-                     << (data_[i] != POISON<value_type>::value ? "  //ERROR!\n" : "\n");
+                     << (data_[i] != POISON<value_type>::value ? "\t//ERROR!\n" : "\n");
             }
 #endif
             fout << "}\n"

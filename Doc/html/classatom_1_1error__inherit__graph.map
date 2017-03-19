@@ -1,7 +1,0 @@
-<map id="atom::error" name="atom::error">
-<area shape="rect" id="node2" href="$classatom_1_1bad_alloc.html" title="Exception about problems with allocate of the memory. " alt="" coords="5,219,115,296"/>
-<area shape="rect" id="node3" href="$classatom_1_1invalid_argument.html" title="Exception about problems with arguments in functions. " alt="" coords="139,219,290,296"/>
-<area shape="rect" id="node4" href="$classatom_1_1invalid_object.html" title="Exception about problems with object different classes. " alt="" coords="314,219,446,296"/>
-<area shape="rect" id="node5" href="$classatom_1_1other_error.html" title="Undefine here exceptions. " alt="" coords="470,219,586,296"/>
-<area shape="rect" id="node6" href="$classatom_1_1out_of_range.html" title="Exception about problems connected with borders. " alt="" coords="610,219,737,296"/>
-</map>
