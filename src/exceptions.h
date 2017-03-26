@@ -31,9 +31,8 @@
 //! @def FULL_COORDINATES_FFL
 //! @brief Replace macro function name and line numbers to substitute into the function
 //-----------------------------------------------------------------------------
-#ifdef __GNUC__
-    #define FULL_COORDINATES_FFL __FILE__, _FUNCTION_, __LINE__
-#endif
+#define FULL_COORDINATES_FFL __FILE__, _FUNCTION_, __LINE__
+
 
 //-----------------------------------------------------------------------------
 //! @namespace atom
