@@ -82,7 +82,7 @@ namespace atom {
 #endif
         }
 		
-		//-----------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------
         //! @brief Constructor
         //! @details Constructor which resize memory to n elements and initialize them
         //! @param n The number of elements for which memory is allocated
@@ -165,7 +165,7 @@ namespace atom {
         //-----------------------------------------------------------------------------
         ~vector_t() {
             delete[] data_;
-            data_   = nullptr;
+            data_ = nullptr;
             status_valid_ = 0;
 
 #ifndef ATOM_NDEBUG
@@ -204,6 +204,7 @@ namespace atom {
         //! @return Iterator on the begin of the vector
         //-----------------------------------------------------------------------------
         iterator begin() {
+            ATOM_OUT_OF_RANGE(!size_);
             return iterator(data_);
         }
 
@@ -212,6 +213,7 @@ namespace atom {
         //! @return Iterator on the end of the vector
         //-----------------------------------------------------------------------------
         iterator end() {
+            ATOM_OUT_OF_RANGE(!size_);
             return iterator(data_ + size_);
         }
 
@@ -219,7 +221,8 @@ namespace atom {
         //! @brief Constant iterator
         //! @return Iterator on the begin of the vector
         //-----------------------------------------------------------------------------
-        const_iterator cbegin() {
+        const_iterator cbegin() const {
+            ATOM_OUT_OF_RANGE(!size_);
             return const_iterator(data_);
         }
 
@@ -227,7 +230,8 @@ namespace atom {
         //! @brief Constant iterator
         //! @return Iterator on the end of the vector
         //-----------------------------------------------------------------------------
-        const_iterator cend() {
+        const_iterator cend() const {
+            ATOM_OUT_OF_RANGE(!size_);
             return const_iterator(data_ + size_);
         }
 
@@ -269,10 +273,7 @@ namespace atom {
         const_reference operator[](const size_type n) const {
             ATOM_ASSERT_VALID(this);
 
-            if (n >= size_) {
-                throw atom::outOfRange(FUNC_AND_LINE);
-            }
-
+            ATOM_OUT_OF_RANGE(n >= size_);
             return data_[n];
         }
 
@@ -484,13 +485,16 @@ namespace atom {
         //! @param function_name Name of function which call this method
         //! @param line_number Number of line which call this method
         //-----------------------------------------------------------------------------
-        void dump(const char* function_name,
-                  int         line_number) const;
+        void dump(const char* file,
+                  const char* function_name,
+                  int         line_number,
+                  const char* output_file = "__vector_dump.txt") const;
     };
 
 }
 
 //! @brief Implementation methods of the class vector_t
 #include "implement/vector.hpp"
+#include "vector_bool.h"
 
 #endif // ATOM_VECTOR_H

@@ -15,6 +15,7 @@
 #define ATOM_EXCEPTIONS_H 1
 
 #include <string>
+#include <stdexcept>
 
 //-----------------------------------------------------------------------------
 //! @def _FUNCTION_
@@ -27,11 +28,11 @@
 #endif
 
 //-----------------------------------------------------------------------------
-//! @def FUNC_AND_LINE
+//! @def FULL_COORDINATES_FFL
 //! @brief Replace macro function name and line numbers to substitute into the function
 //-----------------------------------------------------------------------------
 #ifdef __GNUC__
-    #define FUNC_AND_LINE _FUNCTION_, __LINE__
+    #define FULL_COORDINATES_FFL __FILE__, _FUNCTION_, __LINE__
 #endif
 
 //-----------------------------------------------------------------------------
@@ -46,10 +47,11 @@ namespace atom {
     //! @details Have three members: function_, line_, message_
     //! @details which discribe place where was generate exception and give message about it
     //-----------------------------------------------------------------------------
-    class error {
+    class error : public std::exception {
     public:
 
         using const_string_type = const std::string; //!< Const string type
+        using exception         = std::exception;    //!< Rename std::exception
 
         //-----------------------------------------------------------------------------
         //! @breif Constructor
@@ -57,19 +59,37 @@ namespace atom {
         //! @param line Number of the line
         //! @param msg Additional messange about error
         //-----------------------------------------------------------------------------
-        error(const_string_type& func = "",
-              const int          line = 0,
-              const_string_type& msg  = "") :
+        error(const_string_type& file   = "",
+              const_string_type& func   = "",
+              const int          line   = 0,
+              const_string_type& msg    = "",
+              error*             parent = nullptr) :
             line_    (line),
             function_(func),
-            message_ (msg) {
+            filename_(file),
+            message_ (msg),
+            parent_  (parent){
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @breif Clone object
+        //! @return Pointer on clone object
+        //-----------------------------------------------------------------------------
+        virtual error* clone() const = 0;
+
+        //-----------------------------------------------------------------------------
+        //! @breif Return name of the file
+        //! @retunr const std::string - name file
+        //-----------------------------------------------------------------------------
+        const_string_type& file() const {
+            return filename_;
         }
 
         //-----------------------------------------------------------------------------
         //! @breif Return name caused function
         //! @retunr const std::string - name function
         //-----------------------------------------------------------------------------
-        const_string_type func() const {
+        const_string_type& func() const {
             return function_;
         }
 
@@ -82,28 +102,36 @@ namespace atom {
         }
 
         //-----------------------------------------------------------------------------
-        //! @breif Message about error
-        //! @return const std::string - message
+        //! @breif Preventive exception
+        //! @return Reference on the preventive exception
         //-----------------------------------------------------------------------------
-        const_string_type what() const {
-            return message_;
+        error& parent() const {
+            return *parent_;
         }
 
         //-----------------------------------------------------------------------------
-        //! @breif Pure virtual destructor
-        //! @details With the aim of abstraction of the class
+        //! @breif Message about error
+        //! @return const char* - message
         //-----------------------------------------------------------------------------
-        virtual ~error() = 0;
+        const char* what() const noexcept override {
+            return message_.data();
+        }
+
+        //-----------------------------------------------------------------------------
+        //! @breif Virtual destructor
+        //-----------------------------------------------------------------------------
+        virtual ~error() {
+            delete parent_;
+        }
 
     private:
 
         const int         line_;     //!< Number of the line
-        const_string_type function_; //!< Name of the function which generate exception
+        const_string_type function_; //!< Name of the function which generated exception
+        const_string_type filename_; //!< Name of the file where generated exception
         const_string_type message_;  //!< Additional messange about error
+        error*            parent_;   //!< Pointer on the preventive exception
     };
-
-    error::~error() {
-    }
 
     //-----------------------------------------------------------------------------
     //! @class badAlloc
@@ -113,10 +141,16 @@ namespace atom {
     class badAlloc: public error {
     public:
 
-        badAlloc(const_string_type& func = "",
-                 const int          line = 0,
-                 const_string_type& msg  = "") :
-            error(func, line, msg) {
+        badAlloc(const_string_type& file   = "",
+                 const_string_type& func   = "",
+                 const int          line   = 0,
+                 const_string_type& msg    = "",
+                 error*             parent = nullptr) :
+            error(file, func, line, msg, parent) {
+        }
+
+        badAlloc* clone() const final {
+            return new badAlloc(*this);
         }
     };
 
@@ -128,10 +162,16 @@ namespace atom {
     class outOfRange: public error {
     public:
 
-        outOfRange(const_string_type& func = "",
-                   const int          line = 0,
-                   const_string_type& msg  = "") :
-            error(func, line, msg) {
+        outOfRange(const_string_type& file   = "",
+                   const_string_type& func   = "",
+                   const int          line   = 0,
+                   const_string_type& msg    = "",
+                   error*             parent = nullptr) :
+            error(file, func, line, msg, parent) {
+        }
+
+        outOfRange* clone() const final {
+            return new outOfRange(*this);
         }
     };
 
@@ -143,10 +183,16 @@ namespace atom {
     class invalidArgument: public error {
     public:
 
-        invalidArgument(const_string_type& func = "",
-                        const int          line = 0,
-                        const_string_type& msg  = "") :
-            error(func, line, msg) {
+        invalidArgument(const_string_type& file   = "",
+                        const_string_type& func   = "",
+                        const int          line   = 0,
+                        const_string_type& msg    = "",
+                        error*             parent = nullptr) :
+            error(file, func, line, msg, parent) {
+        }
+
+        invalidArgument* clone() const final {
+            return new invalidArgument(*this);
         }
     };
 
@@ -158,10 +204,37 @@ namespace atom {
     class invalidObject: public error {
     public:
 
-        invalidObject(const_string_type& func = "",
-                      const int          line = 0,
-                      const_string_type& msg  = "") :
-            error(func, line, msg) {
+        invalidObject(const_string_type& file   = "",
+                      const_string_type& func   = "",
+                      const int          line   = 0,
+                      const_string_type& msg    = "",
+                      error*             parent = nullptr) :
+            error(file, func, line, msg, parent) {
+        }
+
+        invalidObject* clone() const final {
+            return new invalidObject(*this);
+        }
+    };
+
+    //-----------------------------------------------------------------------------
+    //! @class badStream
+    //! @brief Problem with stream
+    //! @details Derived from class error
+    //-----------------------------------------------------------------------------
+    class badStream: public error {
+    public:
+
+        badStream(const_string_type& file   = "",
+                  const_string_type& func   = "",
+                  const int          line   = 0,
+                  const_string_type& msg    = "",
+                  error*             parent = nullptr) :
+            error(file, func, line, msg, parent) {
+        }
+
+        badStream* clone() const final {
+            return new badStream(*this);
         }
     };
 
@@ -173,13 +246,55 @@ namespace atom {
     class otherError: public error {
     public:
 
-        otherError(const_string_type& func = "",
-                   const int          line = 0,
-                   const_string_type& msg  = "") :
-            error(func, line, msg) {
+        otherError(const_string_type& file   = "",
+                   const_string_type& func   = "",
+                   const int          line   = 0,
+                   const_string_type& msg    = "",
+                   error*             parent = nullptr) :
+            error(file, func, line, msg, parent) {
+        }
+
+        otherError* clone() const final {
+            return new otherError(*this);
         }
     };
 
+}
+
+#define ATOM_OUT_OF_RANGE(condition) {\
+    if ((condition)) {\
+        throw atom::outOfRange(FULL_COORDINATES_FFL);\
+    }\
+}
+
+#define ATOM_BAD_ALLOC(condition) {\
+    if ((condition)) {\
+        throw atom::badAlloc(FULL_COORDINATES_FFL);\
+    }\
+}
+
+#define ATOM_INVALID_ARGUMENT(condition) {\
+    if ((condition)) {\
+        throw atom::invalidArgument(FULL_COORDINATES_FFL);\
+    }\
+}
+
+#define ATOM_INVALID_OBJECT(condition) {\
+    if ((condition)) {\
+        throw atom::invalidObject(FULL_COORDINATES_FFL);\
+    }\
+}
+
+#define ATOM_BAD_STREAM(condition) {\
+    if ((condition)) {\
+        throw atom::badStream(FULL_COORDINATES_FFL);\
+    }\
+}
+
+#define ATOM_OTHER_ERROR(condition, mesg) {\
+    if ((condition)) {\
+        throw atom::otherError(FULL_COORDINATES_FFL, (mesg));\
+    }\
 }
 
 #endif // ATOM_EXCEPTIONS_H

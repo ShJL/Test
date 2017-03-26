@@ -26,9 +26,9 @@
 #ifndef ATOM_NDEBUG
 #define ATOM_ASSERT_VALID(p_elem) {\
     if (!((p_elem)->is_valid())) {\
-        (p_elem)->dump(FUNC_AND_LINE);\
+        (p_elem)->dump(FULL_COORDINATES_FFL);\
         assert(!"Object is good");\
-        throw atom::invalidObject(FUNC_AND_LINE, __FILE__);\
+        throw atom::invalidObject(FULL_COORDINATES_FFL);\
     }\
 }
 #else

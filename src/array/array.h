@@ -74,7 +74,7 @@ namespace atom {
 
             if (n > max_size_) {
                 status_valid_ = 0;
-                throw atom::badAlloc(FUNC_AND_LINE);
+                throw atom::badAlloc(FULL_COORDINATES_FFL);
             }
 
             size_ = n;
@@ -100,7 +100,7 @@ namespace atom {
 
             if (n > max_size_) {
                 status_valid_ = 0;
-                throw atom::badAlloc(FUNC_AND_LINE);
+                throw atom::badAlloc(FULL_COORDINATES_FFL);
             }
 
             size_ = n;
@@ -139,7 +139,7 @@ namespace atom {
 
             if (init.size() > max_size_) {
                 status_valid_ = 0;
-                throw atom::badAlloc(FUNC_AND_LINE);
+                throw atom::badAlloc(FULL_COORDINATES_FFL);
             }
 
             size_ = init.size();
@@ -155,12 +155,11 @@ namespace atom {
         //! @details Macro ATOM_NDEBUG for debug mode
         //-----------------------------------------------------------------------------
         ~array_t() {
-            status_valid_ = 0;
-
 #ifndef ATOM_NDEBUG
             std::fill_n(data_, size_, POISON<value_type>::value);
             size_ = POISON<size_type>::value;
 #endif
+            status_valid_ = 0;
         }
 
         //-----------------------------------------------------------------------------
@@ -198,10 +197,7 @@ namespace atom {
         const_reference operator[](const size_type n) const {
             ATOM_ASSERT_VALID(this);
 
-            if (n >= size_) {
-                throw atom::outOfRange(FUNC_AND_LINE);
-            }
-
+            ATOM_OUT_OF_RANGE(n >= size_);
             return data_[n];
         }
 
@@ -273,10 +269,7 @@ namespace atom {
         void push_back(const_reference x) {
             ATOM_ASSERT_VALID(this);
 
-            if (size_ >= max_size_) {
-                throw atom::badAlloc(FUNC_AND_LINE);
-            }
-
+            ATOM_BAD_ALLOC(size_ >= max_size_);
             data_[size_++] = x;
 
             ATOM_ASSERT_VALID(this);
@@ -291,10 +284,7 @@ namespace atom {
         void push_back(const_value_type&& x) {
             ATOM_ASSERT_VALID(this);
 
-            if (size_ >= max_size_) {
-                throw atom::badAlloc(FUNC_AND_LINE);
-            }
-
+            ATOM_BAD_ALLOC(size_ >= max_size_);
             data_[size_++] = x;
 
             ATOM_ASSERT_VALID(this);
@@ -338,6 +328,16 @@ namespace atom {
         }
 
         //-----------------------------------------------------------------------------
+        //! @brief Clear the array
+        //-----------------------------------------------------------------------------
+        void clear() noexcept {
+#ifndef ATOM_NDEBUG
+            std::fill_n(data_, size_, POISON<value_type>::value);
+#endif
+            size_ = 0;
+        }
+
+        //-----------------------------------------------------------------------------
         //! @brief Size
         //! @return size of the array
         //! @throw atom::invalidObject From ATOM_ASSERT_VALID() when array is not valid
@@ -362,7 +362,9 @@ namespace atom {
         //! @param value The value to be assigned to all elements of the array
         //-----------------------------------------------------------------------------
         void fill(const_reference value) {
+            ATOM_ASSERT_VALID(this);
             std::fill_n(data_, size_, value);
+            ATOM_ASSERT_VALID(this);
         }
 
         //-----------------------------------------------------------------------------
@@ -388,7 +390,7 @@ namespace atom {
         //! @brief Swap two array
         //! @param rhs other array to which you want to exchange
         //-----------------------------------------------------------------------------
-        void swap(array_t& rhs) {
+        void swap(array_t& rhs) noexcept {
             std::swap_ranges(data_, data_ + max_size_, rhs.data_);
             std::swap(size_, rhs.size_);
             unsigned char tmp_status = rhs.status_valid_;
@@ -401,8 +403,9 @@ namespace atom {
         //! @return True if array is valid else return false
         //-----------------------------------------------------------------------------
         bool is_valid() const noexcept {
-            return
-                    this && status_valid_ && size_ <= max_size_;
+            return this &&
+                    status_valid_ &&
+                    size_ <= max_size_;
         }
 
     private:
@@ -419,13 +422,16 @@ namespace atom {
         //! @param function_name Name of function which call this method
         //! @param line_number Number of line which call this method
         //-----------------------------------------------------------------------------
-        void dump(const char* function_name,
-                  int         line_number) const;
+        void dump(const char* file,
+                  const char* function_name,
+                  int         line_number,
+                  const char* output_file = "__array_dump.txt") const;
 
     };
 }
 
 //! @brief Implementation methods of the class vector_t
 #include "implement/array.hpp"
+#include "array_bool.h"
 
 #endif // ATOM_ARRAY_H

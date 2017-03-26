@@ -76,10 +76,10 @@ namespace atom {
         //! @return Constant reference to the calling object
         //-----------------------------------------------------------------------------
         const va_iterator& operator=(const va_iterator& other) noexcept {
-			if (this != &other) {
-				current_ = other.current_;
-			}
-			return *this;
+            if (this != &other) {
+                current_ = other.current_;
+            }
+            return *this;
         }
 
         //-----------------------------------------------------------------------------
@@ -88,9 +88,7 @@ namespace atom {
         //! @return value of the element
         //-----------------------------------------------------------------------------
         value_type operator*() const {
-            if (!current_) {
-                throw atom::otherError(FUNC_AND_LINE, "Is null");
-            }
+            ATOM_OTHER_ERROR(!current_, "Is null");
 
             return *current_;
         }
@@ -109,9 +107,7 @@ namespace atom {
         //! @return Reference on the calling object
         //-----------------------------------------------------------------------------
         va_iterator& operator++() {
-            if (!current_) {
-                throw atom::otherError(FUNC_AND_LINE, "Is null");
-            }
+            ATOM_OTHER_ERROR(!current_, "Is null");
 
             ++current_;
             return *this;
@@ -123,9 +119,7 @@ namespace atom {
         //! @return old iterator before increment
         //-----------------------------------------------------------------------------
         const va_iterator operator++(int) {
-			if (!current_) {
-                throw atom::otherError(FUNC_AND_LINE, "Is null");
-            }
+            ATOM_OTHER_ERROR(!current_, "Is null");
 			
             va_iterator old_value = *this;
             ++current_;
@@ -138,9 +132,7 @@ namespace atom {
         //! @return Reference on the calling object
         //-----------------------------------------------------------------------------
         va_iterator& operator--() {
-            if (!current_) {
-                throw atom::otherError(FUNC_AND_LINE, "Is null");
-            }
+            ATOM_OTHER_ERROR(!current_, "Is null");
 
             --current_;
             return *this;
@@ -152,9 +144,7 @@ namespace atom {
         //! @return old iterator before increment
         //-----------------------------------------------------------------------------
         const va_iterator operator--(int) {
-			if (!current_) {
-                throw atom::otherError(FUNC_AND_LINE, "Is null");
-            }
+            ATOM_OTHER_ERROR(!current_, "Is null");
 			
             value_type old_value(*this);
             --current_;
@@ -167,9 +157,7 @@ namespace atom {
         //! @return Constant reference on the calling object
         //-----------------------------------------------------------------------------
         const va_iterator& operator+=(const int index) {
-            if (!current_) {
-                throw atom::otherError(FUNC_AND_LINE, "Is null");
-            }
+            ATOM_OTHER_ERROR(!current_, "Is null");
 
             current_ += index;
             return *this;
@@ -181,9 +169,7 @@ namespace atom {
         //! @return Constant reference on the calling object
         //-----------------------------------------------------------------------------
         const va_iterator& operator-=(const int index) {
-            if (!current_) {
-                throw atom::otherError(FUNC_AND_LINE, "Is null");
-            }
+            ATOM_OTHER_ERROR(!current_, "Is null");
 
             current_ -= index;
             return *this;
@@ -281,9 +267,7 @@ namespace atom {
     va_iterator<T>& operator-(const va_iterator<T>& lhs,
                               const int index) {
 
-        if (!lhs.current_) {
-            throw atom::otherError(FUNC_AND_LINE, "Is null");
-        }
+        ATOM_OTHER_ERROR(!lhs.current_, "Is null");
 
         return va_iterator<T>(lhs.current_ - index);
     }
@@ -292,9 +276,7 @@ namespace atom {
     va_iterator<T>& operator+(const va_iterator<T>& lhs,
                               const int index) {
 
-        if (!lhs.current_) {
-            throw atom::otherError(FUNC_AND_LINE, "Is null");
-        }
+        ATOM_OTHER_ERROR(!lhs.current_, "Is null");
 
         return va_iterator<T>(lhs.current_ + index);
     }
@@ -304,12 +286,8 @@ namespace atom {
     operator-(const va_iterator<T>& lhs,
               const va_iterator<T>& rhs) {
 
-        if (!lhs.current_) {
-            throw atom::otherError(FUNC_AND_LINE, "Lhs is null");
-        }
-        if (!rhs.current_) {
-            throw atom::otherError(FUNC_AND_LINE, "Rhs is null");
-        }
+        ATOM_OTHER_ERROR(!lhs.current_, "Lhs is null");
+        ATOM_OTHER_ERROR(!rhs.current_, "Rhs is null");
 
         return lhs.current_ - rhs.current_;
     }

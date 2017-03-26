@@ -21,7 +21,7 @@ namespace atom {
             tmp_buffer = new value_type[new_capacity];
         }
         catch (std::bad_alloc) {
-            throw atom::badAlloc(FUNC_AND_LINE);
+            throw atom::badAlloc(FULL_COORDINATES_FFL);
         }
 
         if (is_arithmetic_type_) {
@@ -121,36 +121,39 @@ namespace atom {
     }
 
     template<typename Tp>
-    void vector_t<Tp>::dump(const char* function_name,
-                            int         line_number) const {
+    void vector_t<Tp>::dump(const char* file,
+                            const char* function_name,
+                            int         line_number,
+                            const char* output_file) const {
 
-        std::ofstream fout("__vector_dump.txt", std::ios_base::app);
+        std::ofstream fout(output_file, std::ios_base::app);
 
-        if (fout.is_open()) {
-            fout << "-------------------\n"
-                    "Class vector_t:\n"
-                    "time: "           << __TIME__      << "\n"
-                    "function: "       << function_name << "\n"
-                    "line: "           << line_number   << "\n"
-                    "status: "         << (is_valid() ? "ok\n{\n" : "FAIL\n{\n");
-            fout << "\tsize: "         << size_         << "\n"
-                    "\tcapacity: "     << capacity_     << "\n"
-                    "\tfield_status: " << (status_valid_ ? "ok\n\n" : "fail\n\n");
+        ATOM_BAD_STREAM(!fout.is_open());
+
+        fout << "-------------------\n"
+                "Class vector_t:\n"
+                "time: "           << __TIME__      << "\n"
+                "file: "           << file          << "\n"
+                "function: "       << function_name << "\n"
+                "line: "           << line_number   << "\n"
+                "status: "         << (is_valid() ? "ok\n{\n" : "FAIL\n{\n");
+        fout << "\tsize: "         << size_         << "\n"
+                "\tcapacity: "     << capacity_     << "\n"
+                "\tfield_status: " << (status_valid_ ? "ok\n\n" : "fail\n\n");
 
 #ifndef ATOM_NWRITE
-            for (size_type i = 0; i < size_; ++i) {
-                fout << "\t* [" << i << "] =  " << data_[i] << "\n";
-            }
-            for (size_type i = size_; i < capacity_; ++i) {
-                fout << "\t  [" << i << "] =  " << data_[i]
-                     << (data_[i] != POISON<value_type>::value ? "\t//ERROR!\n" : "\n");
-            }
-#endif
-            fout << "}\n"
-                    "-------------------\n";
-
-            fout.close();
+        for (size_type i = 0; i < size_; ++i) {
+            fout << "\t* [" << i << "] =  " << data_[i] << "\n";
         }
+        for (size_type i = size_; i < capacity_; ++i) {
+            fout << "\t  [" << i << "] =  " << data_[i]
+                 << (data_[i] != POISON<value_type>::value ? "\t//ERROR!\n" : "\n");
+        }
+#endif
+        fout << "}\n"
+                "-------------------\n";
+
+        fout.close();
     }
 
 }

@@ -70,7 +70,7 @@ namespace atom {
         //! @brief The move constructor
         //! @param that The move source
         //-----------------------------------------------------------------------------
-        stack_t(const stack_t&& that) noexcept {
+        stack_t(stack_t&& that) noexcept {
             swap(that);
         }
 
@@ -189,8 +189,10 @@ namespace atom {
         //! @param function_name Name of function which call this method
         //! @param line_number Number of the line where call this method
         //-----------------------------------------------------------------------------
-        void dump(const char* function_name,
-                  int         line_number) const noexcept;
+        void dump(const char* file,
+                  const char* function_name,
+                  int         line_number,
+                  const char* output = "__stack_dump.txt") const;
     };
 
 }
